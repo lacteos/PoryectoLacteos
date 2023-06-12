@@ -32,7 +32,7 @@ namespace ProyectoLacteos.ViewModel
                     NuevoUsuarioRequest datos = new NuevoUsuarioRequest()
                     {
                         NM = NombreUsuario,
-                        TEL = Contrasenia,
+                        TEL = Telefono,
                         EMAIL = Correo,
                         PASS = Contrasenia
                     };

@@ -31,11 +31,11 @@
     <StackLayout VerticalOptions="CenterAndExpand" Padding="40">
         <Label Text="Iniciar sesión" FontSize="24" HorizontalOptions="Center" Margin="0,0,0,40" TextColor="#333333" />
 
-        <Entry Placeholder="Correo electrónico" Keyboard="Email" />
+        <Entry Placeholder="Correo electrónico" Text="{Binding Correo}" Keyboard="Email" />
 
-        <Entry Placeholder="Contraseña" IsPassword="True" />
+        <Entry Placeholder="Contraseña" Text="{Binding}" IsPassword="True" />
 
-        <Button Text="Iniciar sesión" />
+        <Button Text="Iniciar sesión" Command="{Binding autenticacion}" />
 
         <Button Text="Registrarse" Command="{Binding redirigirCrearUsuario}" />
     </StackLayout>

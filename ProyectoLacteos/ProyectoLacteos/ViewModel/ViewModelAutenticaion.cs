@@ -17,13 +17,19 @@ namespace ProyectoLacteos.ViewModel
             autenticacion = new Command(async () =>
             {
 
-                string urlNueva = $"https://apex.oracle.com/pls/apex/lacteos/Lacteos/login/";
+                string urlNueva = "https://apex.oracle.com/pls/apex/lacteos/Lacteos/login";
 
                 ConsumoServicio servicio = new ConsumoServicio(urlNueva);
 
-                Autenticacion auth = await servicio.Get<Autenticacion>();
+                LoginRequest auth = new LoginRequest()
+                {
+                    p_correo = Correo,    
+                    p_contra = Contrasenia
+                };
 
-                if (auth.respuesta == "true")
+                Autenticacion response = await servicio.PostAsync<Autenticacion>(auth);
+
+                if (response.respuesta == "true")
                 {
 
                     var pagina = new viewCategorias();
@@ -33,7 +39,7 @@ namespace ProyectoLacteos.ViewModel
                 else
                 {
 
-                    if (auth.respuesta == "false")
+                    if (response.respuesta == "false")
                     {
                         ResultAuth = "Autenticacion Incorrecta";
 
