@@ -33,7 +33,7 @@
 
         <Entry Placeholder="Correo electrónico" Text="{Binding Correo}" Keyboard="Email" />
 
-        <Entry Placeholder="Contraseña" Text="{Binding}" IsPassword="True" />
+        <Entry Placeholder="Contraseña" Text="{Binding Contrasenia}" IsPassword="True" />
 
         <Button Text="Iniciar sesión" Command="{Binding autenticacion}" />
 
