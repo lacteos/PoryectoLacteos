@@ -62,14 +62,14 @@ namespace ProyectoLacteos.ViewModel
 
             }
         }
-        string telefono;
+        string telefon;
 
         public string Telefono
         {
-            get => telefono;
+            get => telefon;
             set
             {
-                telefono = value;
+                telefon = value;
                 var args = new PropertyChangedEventArgs(nameof(Telefono));
                 PropertyChanged?.Invoke(this, args);
 
