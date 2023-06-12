@@ -5,6 +5,7 @@ using System.Text;
 using ProyectoLacteos.ViewModel;
 using ProyectoLacteos.Modelo;
 using Xamarin.Forms;
+using ProyectoLacteos.View;
 
 namespace ProyectoLacteos.ViewModel
 {
@@ -49,7 +50,7 @@ namespace ProyectoLacteos.ViewModel
             redirigirCrearUsuario = new Command(() => {
 
 
-                var pagina = new viewCreacionUsuarios();
+                var pagina = new viewRegistroUser();
                 Application.Current.MainPage.Navigation.PushAsync(pagina);
 
 
