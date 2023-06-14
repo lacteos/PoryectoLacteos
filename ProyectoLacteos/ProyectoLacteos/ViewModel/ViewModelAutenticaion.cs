@@ -42,7 +42,7 @@ namespace ProyectoLacteos.ViewModel
                     if (response.respuesta == "false")
                     {
                         ResultAuth = "Autenticacion Incorrecta";
-                        Application.Current.MainPage.DisplayAlert("Error", "Contraseñas o correo no validos", "OK");
+                        Application.Current.MainPage.DisplayAlert("Error", "Contraseña o correo no validos", "OK");
 
                     }
 
