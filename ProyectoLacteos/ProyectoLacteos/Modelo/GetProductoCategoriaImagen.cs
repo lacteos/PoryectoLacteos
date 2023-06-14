@@ -6,5 +6,7 @@ namespace ProyectoLacteos.Modelo
 {
     public class GetProductoCategoriaImagen
     {
+        public blob foto { get; set; }
+
     }
 }

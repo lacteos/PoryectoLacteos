@@ -5,7 +5,7 @@ using System.Text;
 namespace ProyectoLacteos.Modelo
 {
     
-    public class ItemArticuloCategoria
+    public class ItemProductoCategoria
     {
         public string foto { get; set; }
         public string nombre_producto { get; set; }
@@ -21,7 +21,7 @@ namespace ProyectoLacteos.Modelo
 
     public class GetProductoCategoria
     {
-        public List<ItemArticuloCategoria> items { get; set; }
+        public List<ItemProductoCategoria> items { get; set; }
         public bool hasMore { get; set; }
         public int limit { get; set; }
         public int offset { get; set; }
