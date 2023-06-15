@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:ProyectoLacteos.ViewModel"
+             x:Class="ProyectoLacteos.View.PaginaInicio">
+    <ContentPage.BindingContext>
+        <local:ViewPaginaInicio></local:ViewPaginaInicio>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <Label Text="¡Lacteos Modelo!"
+                   FontSize="Large" 
+                   HorizontalOptions="Center" />
+            <Button Text="Mi Perfil"
+                    
+                    HorizontalOptions="Center" />
+            <Button Text="Mis Direcciones"
+                    
+                    HorizontalOptions="Center" />
+            <Button Command="{Binding navegarPedido}" Text="Realizar Pedido"
+                    HorizontalOptions="Center" />
+            
+            <Button Command="{Binding navegarProducto}" Text="Productos"
+                    HorizontalOptions="Center" />
+                    
+            <Button Command="{Binding navegarCategorias}" Text="Categorias" 
+                    HorizontalOptions="Center" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

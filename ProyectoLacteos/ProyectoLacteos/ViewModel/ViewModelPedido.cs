@@ -21,12 +21,12 @@ namespace ProyectoLacteos.ViewModel
 
                     ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/pedido");
 
-                    PedidoResquest datos = new PedidoResquest()
-                    {
-                        ID_USER = Id_Usuario,
-                        FECHA = Fecha_p,
-                        ID_DIREC = Id_Direccion,
-                        ESTADO = Estado
+                PedidoResquest datos = new PedidoResquest()
+                {
+                    ID_USER = Id_Usuario,
+                    /*FECHA = DateTime.Now,*/
+                    ID_DIREC = Id_Direccion,
+                    ESTADO = Estado
                     };
                     PedidoResponse responose = await servicio.PostAsync<PedidoResponse>(datos);
                     if (responose != null)
@@ -88,7 +88,7 @@ namespace ProyectoLacteos.ViewModel
             }
         }
 
-        DateTime fecha_p;
+        /*DateTime fecha_p;
 
         public DateTime Fecha_p
         {
@@ -101,7 +101,7 @@ namespace ProyectoLacteos.ViewModel
 
             }
         }
-
+        */
 
         public Command crearPedido { get; }
 

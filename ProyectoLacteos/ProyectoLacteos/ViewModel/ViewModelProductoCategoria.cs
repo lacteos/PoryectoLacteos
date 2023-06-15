@@ -1,9 +1,11 @@
 ﻿using ProyectoLacteos.Modelo;
+using ProyectoLacteos.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using Xamarin.Forms;
 
 namespace ProyectoLacteos.ViewModel
 {
@@ -23,10 +25,19 @@ namespace ProyectoLacteos.ViewModel
 
         public ViewModelProductoCategoria()
         {
+            redirigirProducto = new Command(() => {
 
+
+                var pagina = new viewProductos();
+                Application.Current.MainPage.Navigation.PushAsync(pagina);
+
+
+            });
 
         }
+        
 
+        
 
         public async void getArticulos()
         {
@@ -62,7 +73,7 @@ namespace ProyectoLacteos.ViewModel
 
 
         int id_categoria;
-
+        public Command redirigirProducto { get; }
         public ObservableCollection<GetProductoCategoriaImagen> listaArticulo { get; set; } = new ObservableCollection<GetProductoCategoriaImagen>();
 
         public event PropertyChangedEventHandler PropertyChanged;
