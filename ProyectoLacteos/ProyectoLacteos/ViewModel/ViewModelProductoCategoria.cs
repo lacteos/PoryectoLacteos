@@ -39,10 +39,12 @@ namespace ProyectoLacteos.ViewModel
 
                 GetProductoCategoriaImagen imgTmp = new GetProductoCategoriaImagen()
                 {
-
-                    id_articulo = x.id_articulo,
-                    nombre_articulo = x.nombre_articulo,
-                    fotoBase64 = x.foto
+                    fotoBase64 = x.FOTO,
+                    NOMBRE_PRODUCTO = x.NOMBRE_PRODUCTO,
+                     unidad_medida= x.UNIDAD_MEDIDA,
+                    precio = x.PRECIO,
+                    
+                    
 
                 };
 

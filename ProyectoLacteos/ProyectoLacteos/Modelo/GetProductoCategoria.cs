@@ -7,10 +7,10 @@ namespace ProyectoLacteos.Modelo
     
     public class ItemProductoCategoria
     {
-        public string foto { get; set; }
-        public string nombre_producto { get; set; }
-        public int unidad_medida { get; set; }
-        public int precio { get; set; }
+        public string FOTO { get; set; }
+        public string NOMBRE_PRODUCTO { get; set; }
+        public int UNIDAD_MEDIDA { get; set; }
+        public int PRECIO { get; set; }
     }
 
     public class Link
