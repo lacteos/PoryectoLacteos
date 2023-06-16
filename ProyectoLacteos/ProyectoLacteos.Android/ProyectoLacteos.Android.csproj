@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -89,7 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProyectoLacteos\ProyectoLacteos.csproj">
-      <Project>{F42E0786-8F6E-4186-BBC1-6B1AC3C71AAC}</Project>
+      <Project>{91F255FC-5E53-45B2-8FB6-07612467CF65}</Project>
       <Name>ProyectoLacteos</Name>
     </ProjectReference>
   </ItemGroup>
