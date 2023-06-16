@@ -9,7 +9,7 @@ namespace ProyectoLacteos.Modelo
 
         public int ID_USER { get; set; }
 
-        public DateTime FECHA { get; set; }
+        public string FECHA { get; set; }
 
         public int ID_DIREC { get; set; }
 

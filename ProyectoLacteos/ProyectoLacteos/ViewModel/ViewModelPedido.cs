@@ -24,7 +24,7 @@ namespace ProyectoLacteos.ViewModel
                 PedidoResquest datos = new PedidoResquest()
                 {
                     ID_USER = Id_Usuario,
-                    /*FECHA = DateTime.Now,*/
+                    FECHA = Fecha_p.ToString("MM-dd-yyyy"),
                     ID_DIREC = Id_Direccion,
                     ESTADO = Estado
                     };
@@ -88,7 +88,7 @@ namespace ProyectoLacteos.ViewModel
             }
         }
 
-        /*DateTime fecha_p;
+        DateTime fecha_p;
 
         public DateTime Fecha_p
         {
@@ -101,7 +101,7 @@ namespace ProyectoLacteos.ViewModel
 
             }
         }
-        */
+        
 
         public Command crearPedido { get; }
 

@@ -16,6 +16,7 @@
 
             <Entry  Text="{Binding Id_Usuario}" Placeholder="ID Usuario" Keyboard="Numeric" Margin="0,0,0,10" />
             <Entry  Text="{Binding Id_Direccion}" Placeholder="Id Direccion" Keyboard="Numeric" Margin="0,0,0,10" />
+
             <Entry  Text="{Binding Estado}" Placeholder="Estado" Keyboard="Numeric" Margin="0,0,0,10" />
 
             <Button Command="{Binding crearPedido}"  Text="Crear Producto" BackgroundColor="#2196F3" TextColor="White" />
