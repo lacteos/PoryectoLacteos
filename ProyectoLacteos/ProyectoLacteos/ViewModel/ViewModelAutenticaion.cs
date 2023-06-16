@@ -32,7 +32,7 @@ namespace ProyectoLacteos.ViewModel
                 if (response.respuesta == "true")
                 {
 
-                    var pagina = new viewCategorias();
+                    var pagina = new PaginaInicio();
                     Application.Current.MainPage.Navigation.PushAsync(pagina);
 
                 }
