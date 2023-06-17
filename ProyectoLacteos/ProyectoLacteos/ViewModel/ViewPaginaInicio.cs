@@ -29,11 +29,17 @@ namespace ProyectoLacteos.ViewModel
             {
                 await Application.Current.MainPage.Navigation.PushAsync(new viewDirecciones());
             });
+
+            navegarPerfil = new Command(async () =>
+            {
+                await Application.Current.MainPage.Navigation.PushAsync(new ViewPerfil());
+            });
         }
 
         public Command navegarProducto { get; }
         public Command navegarCategorias { get; }
         public Command navegarPedido { get; }
         public Command navegarDirecciones { get; }
+        public Command navegarPerfil { get; }
     }
 }

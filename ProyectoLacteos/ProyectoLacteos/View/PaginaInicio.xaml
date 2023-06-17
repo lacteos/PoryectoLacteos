@@ -42,7 +42,7 @@
                     
                     
                     <ImageButton Source="USUARIOS2.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
-                                 FlexLayout.Grow="1"  Aspect="AspectFit" Grid.Row="2" 
+                                 FlexLayout.Grow="1" Command="{Binding navegarPerfil}"  Aspect="AspectFit" Grid.Row="2" 
                                  Grid.Column="0" BorderWidth="1" CornerRadius="10" BorderColor="Green"/>
 
                     <ImageButton Source="DIRECCION2.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 

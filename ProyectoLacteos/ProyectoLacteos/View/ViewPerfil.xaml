@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+               xmlns:local="clr-namespace:ProyectoLacteos.ViewModel"
+              
+             x:Class="ProyectoLacteos.View.ViewPerfil">
+
+    <ContentPage.BindingContext>
+        <local:ViewModelPerfil></local:ViewModelPerfil>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="Perfil de Usuario" FontSize="20" HorizontalOptions="Center" Margin="0,0,0,20" />
+            <CollectionView ItemsSource="{Binding listaperfil}" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical" Padding="10">
+
+                            
+                            <Entry IsVisible="False" Text="{Binding id}"></Entry>
+
+                            <Label Text="Nombre" />
+                            <Entry x:Name="nombre" Placeholder="Ingrese su nuevo nombre" Text="{Binding nombre}" />
+
+                            <Label Text="Teléfono" />
+                            <Entry x:Name="telefono" Placeholder="Ingrese su nuevo teléfono" Keyboard="Telephone" Text="{Binding telefono}" />
+
+                            <Label Text="Correo Electrónico" />
+                            <Entry x:Name="correo" Placeholder="Ingrese su nuevo correo electrónico" Keyboard="Email" Text="{Binding correo}" />
+
+                            <Label Text="Contraseña" />
+                            <Entry x:Name="contrasena" Placeholder="Ingrese su nueva contraseña" IsPassword="True" Text="{Binding contrasena}" />
+
+
+
+                            <Button Text="Actualizar" HorizontalOptions="Center" Margin="0,20,0,0" />
+
+
+
+
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

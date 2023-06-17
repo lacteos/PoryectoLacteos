@@ -34,6 +34,7 @@ namespace ProyectoLacteos.ViewModel
 
                     var pagina = new PaginaInicio();
                     Application.Current.MainPage.Navigation.PushAsync(pagina);
+                    SharedData.MyData = correo;
 
                 }
                 else
