@@ -3,26 +3,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoLacteos.View.viewRegistroUser"
              xmlns:local ="clr-namespace:ProyectoLacteos.ViewModel"
-             >
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#15992b">
 
     <ContentPage.BindingContext>
         <local:ViewModelRegistroUser></local:ViewModelRegistroUser>
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand" Padding="30">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Margin="0,30" Source="logo2.png" Aspect="AspectFit" HeightRequest="150" WidthRequest="80"></Image>
+        <Frame Grid.Row="1" Margin="0,-40,0,-40" BorderColor="#1C375C" HasShadow="True"  CornerRadius="50" HeightRequest="700">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="20,50,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"  Text="¡Nuevo usuario!" FontSize="24" FontAttributes="Bold" TextColor="#15992b" HorizontalOptions="CenterAndExpand"></Label>
+                <Label Grid.Row="1" Margin="0,-15,0,0" Text="Crea tu Cuenta" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <Entry Grid.Row="2" Text="{Binding NombreUsuario}" Placeholder="Nombre completo" Keyboard="Text" Margin="0,20,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                    <Entry Grid.Row="3" Text="{Binding Correo}" Placeholder="Ingrese su correo" IsPassword="True" Keyboard="Email" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                    <Entry Grid.Row="4" Text="{Binding Telefono }" Placeholder="Numero telefónico" Keyboard="Numeric" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                    <Entry Grid.Row="5" Text="{Binding  Contrasenia}" Placeholder="Contraseña" IsPassword="True" Keyboard="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                    <Entry Grid.Row="6" Text="{Binding  ConfirmacionContrasenia}" Placeholder="Confirme Contraseña" IsPassword="True" Keyboard="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
 
 
-            <Label Text="Crear Usuario" HorizontalOptions="Center" FontSize="24" FontAttributes="Bold" Margin="0,0,0,20" />
+                    <Button Grid.Row="8" Command="{Binding crearUsuario}"  Text="Registrarme" BackgroundColor="#15992b" TextColor="#ffffff" CornerRadius="20"></Button>
 
-            <Entry  Text="{Binding NombreUsuario}" Placeholder="Nombre completo" Keyboard="Text" Margin="0,0,0,10" />
-            <Entry  Text="{Binding Correo}" Placeholder="Ingrese su correo" Keyboard="Email" Margin="0,0,0,10" />
-            <Entry  Text="{Binding Telefono }" Placeholder="Numero telefonico" Keyboard="Numeric" Margin="0,0,0,10" />
-            <Entry  Text="{Binding  Contrasenia}" Placeholder="Contraseña" IsPassword="True" Margin="0,0,0,20" />
-            <Entry  Text="{Binding  ConfirmacionContrasenia}" Placeholder="Confirme Contraseña" IsPassword="True" Margin="0,0,0,20" />
+                <StackLayout Grid.Row="6" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="40">
 
+                </StackLayout>
 
-            <Button Command="{Binding crearUsuario}"  Text="Crear" BackgroundColor="#2196F3" TextColor="White" />
-        </StackLayout>
+                
+            </Grid>
+        </Frame>
+    </Grid>
     </ContentPage.Content>
 </ContentPage>
