@@ -4,7 +4,7 @@
              x:Class="ProyectoLacteos.View.viewRegistroUser"
              xmlns:local ="clr-namespace:ProyectoLacteos.ViewModel"
              Shell.NavBarIsVisible="False"
-             NavigationPage.HasNavigationBar="False"
+             
              BackgroundColor="#15992b">
 
     <ContentPage.BindingContext>
