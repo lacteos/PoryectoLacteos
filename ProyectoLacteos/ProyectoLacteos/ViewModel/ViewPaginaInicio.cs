@@ -24,10 +24,16 @@ namespace ProyectoLacteos.ViewModel
             {
                 await Application.Current.MainPage.Navigation.PushAsync(new viewPedido());
             });
+
+            navegarDirecciones = new Command(async () =>
+            {
+                await Application.Current.MainPage.Navigation.PushAsync(new viewDirecciones());
+            });
         }
 
         public Command navegarProducto { get; }
         public Command navegarCategorias { get; }
         public Command navegarPedido { get; }
+        public Command navegarDirecciones { get; }
     }
 }

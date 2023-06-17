@@ -14,7 +14,7 @@
             <Button Text="Mi Perfil"
                     
                     HorizontalOptions="Center" />
-            <Button Text="Mis Direcciones"
+            <Button Command="{Binding navegarDirecciones}" Text="Mis Direcciones"
                     
                     HorizontalOptions="Center" />
             <Button Command="{Binding navegarPedido}" Text="Realizar Pedido"

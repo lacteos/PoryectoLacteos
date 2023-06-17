@@ -24,6 +24,7 @@
 
             <Label Text="Dirección:" FontSize="16" FontAttributes="Bold" Margin="0,10,0,0" />
             <Entry Placeholder="Ingrese la dirección" Text="{Binding DireccionSeleccionada.direccion}" />
+             <Entry Placeholder="Elija la descripcion" Text="{Binding DireccionSeleccionada.descripcion}" />
             <Button Text="Agregar" Command="{Binding AgregarDireccionCommand}" />
             <Button Text="Actualizar" Command="{Binding ActualizarDireccionCommand}" />
             <Button Text="Eliminar" Command="{Binding EliminarDireccionCommand}" />
