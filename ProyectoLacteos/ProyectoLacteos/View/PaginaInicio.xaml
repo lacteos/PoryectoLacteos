@@ -25,6 +25,7 @@
                         <RowDefinition Height="100"></RowDefinition>
                         <RowDefinition Height="100"></RowDefinition>
                         <RowDefinition Height="100"></RowDefinition>
+                        
                     </Grid.RowDefinitions>
                     
                     <Grid.ColumnDefinitions>
@@ -37,25 +38,28 @@
                     
                     
                     <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Text="¡Bienvenido!" FontSize="24" FontAttributes="Bold" TextColor="#15992b" HorizontalOptions="CenterAndExpand"></Label>
-                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,-15,0,0" Text="Selecciona una Opción" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,-20,0,20" Text="Selecciona una Opción" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
 
-                    
-                    
-                    <ImageButton Source="USUARIOS2.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
+
+                    <Label Grid.Row="2" Grid.Column="0"  Margin="0,-15,0,0" Text="Mi Perfil" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <ImageButton Source="nombre.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
                                  FlexLayout.Grow="1" Command="{Binding navegarPerfil}"  Aspect="AspectFit" Grid.Row="2" 
-                                 Grid.Column="0" BorderWidth="1" CornerRadius="10" BorderColor="Green"/>
+                                 Grid.Column="0" BorderWidth=".5" CornerRadius="10" BorderColor="Green" Margin="5"/>
 
-                    <ImageButton Source="DIRECCION2.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
+                    <Label Grid.Row="2" Grid.Column="1"  Margin="0,-15,0,0" Text="Mis Direcciones" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <ImageButton Source="mapa.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
                                  FlexLayout.Grow="1" Command="{Binding navegarDirecciones}" Aspect="AspectFit" Grid.Row="2" 
-                                 Grid.Column="1" BorderWidth="1" CornerRadius="10" BorderColor="Green"/>
-
-                    <ImageButton Source="REALIZARPEDIDO.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
+                                 Grid.Column="1" BorderWidth=".5" CornerRadius="10" BorderColor="Green" Margin="5" Padding="9"/>
+                    
+                    <Label Grid.Row="3" Grid.Column="0"  Margin="0,-15,0,0" Text="Realizar Pedido" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <ImageButton Source="compra.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
                                  FlexLayout.Grow="1" Command="{Binding navegarPedido}" Aspect="AspectFit" Grid.Row="3" 
-                                 Grid.Column="0" BorderWidth="1" CornerRadius="10" BorderColor="Green"/>
+                                 Grid.Column="0" BorderWidth=".5" CornerRadius="10" BorderColor="Green" Margin="5" Padding="9"/>
 
-                    <ImageButton Source="azure.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
+                    <Label Grid.Row="3" Grid.Column="1"  Margin="0,-15,0,0" Text="Mis Pedidos" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <ImageButton Source="pedidos.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
                                  FlexLayout.Grow="1" Command="{Binding navegarProducto}" Aspect="AspectFit" Grid.Row="3" 
-                                 Grid.Column="1" BorderWidth="2" CornerRadius="10" BorderColor="Green"/>
+                                 Grid.Column="1" BorderWidth=".5" CornerRadius="10" BorderColor="Green" Margin="5" Padding="9"/>
 
                     
 
