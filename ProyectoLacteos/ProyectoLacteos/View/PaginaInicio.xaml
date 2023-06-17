@@ -2,30 +2,66 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:ProyectoLacteos.ViewModel"
-             x:Class="ProyectoLacteos.View.PaginaInicio">
+             x:Class="ProyectoLacteos.View.PaginaInicio"
+             BackgroundColor="#15992b">
+    
+    
     <ContentPage.BindingContext>
         <local:ViewPaginaInicio></local:ViewPaginaInicio>
     </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="¡Lacteos Modelo!"
-                   FontSize="Large" 
-                   HorizontalOptions="Center" />
-            <Button Text="Mi Perfil"
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Margin="0,30" Source="logo2.png" Aspect="AspectFit" HeightRequest="120" WidthRequest="80"></Image>
+            <Frame Grid.Row="1" Margin="0,0,0,-40" BorderColor="#1C375C" HasShadow="True"  CornerRadius="50" HeightRequest="700">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="20,50,20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="100"></RowDefinition>
+                        <RowDefinition Height="100"></RowDefinition>
+                        <RowDefinition Height="100"></RowDefinition>
+                    </Grid.RowDefinitions>
                     
-                    HorizontalOptions="Center" />
-            <Button Command="{Binding navegarDirecciones}" Text="Mis Direcciones"
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        <ColumnDefinition Width="150"></ColumnDefinition>
+                        
+                        
+                    </Grid.ColumnDefinitions>
                     
-                    HorizontalOptions="Center" />
-            <Button Command="{Binding navegarPedido}" Text="Realizar Pedido"
-                    HorizontalOptions="Center" />
-            
-            <Button Command="{Binding navegarProducto}" Text="Productos"
-                    HorizontalOptions="Center" />
                     
-            <Button Command="{Binding navegarCategorias}" Text="Categorias" 
-                    HorizontalOptions="Center" />
-            
-        </StackLayout>
+                    
+                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Text="¡Bienvenido!" FontSize="24" FontAttributes="Bold" TextColor="#15992b" HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,-15,0,0" Text="Selecciona una Opción" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+
+                    
+                    
+                    <ImageButton Source="USUARIOS2.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
+                                 FlexLayout.Grow="1"  Aspect="AspectFit" Grid.Row="2" 
+                                 Grid.Column="0" BorderWidth="1" CornerRadius="10" BorderColor="Green"/>
+
+                    <ImageButton Source="DIRECCION2.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
+                                 FlexLayout.Grow="1" Command="{Binding navegarDirecciones}" Aspect="AspectFit" Grid.Row="2" 
+                                 Grid.Column="1" BorderWidth="1" CornerRadius="10" BorderColor="Green"/>
+
+                    <ImageButton Source="REALIZARPEDIDO.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
+                                 FlexLayout.Grow="1" Command="{Binding navegarPedido}" Aspect="AspectFit" Grid.Row="3" 
+                                 Grid.Column="0" BorderWidth="1" CornerRadius="10" BorderColor="Green"/>
+
+                    <ImageButton Source="azure.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
+                                 FlexLayout.Grow="1" Command="{Binding navegarProducto}" Aspect="AspectFit" Grid.Row="3" 
+                                 Grid.Column="1" BorderWidth="2" CornerRadius="10" BorderColor="Green"/>
+
+                    
+
+                    <Button Command="{Binding navegarCategorias}" Text="Categorias" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" />
+                </Grid>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
