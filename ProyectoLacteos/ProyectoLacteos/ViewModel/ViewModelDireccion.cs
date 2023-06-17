@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ProyectoLacteos.Modelo;
+using Xamarin.Forms;
 
 namespace ProyectoLacteos.ViewModel
 {
@@ -78,7 +79,10 @@ namespace ProyectoLacteos.ViewModel
         }
 
         #endregion
-
+       
+        public Command AgregarDireccion1 { get; set; }
+        public Command ActualizarDireccion1 { get; set; }
+        public Command EliminarDireccion1 { get; set; }
 
     }
 }

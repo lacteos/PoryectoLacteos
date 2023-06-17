@@ -1,4 +1,5 @@
 ﻿using ProyectoLacteos.Modelo;
+using ProyectoLacteos.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,17 +25,18 @@ namespace ProyectoLacteos.ViewModel
                 PedidoResquest datos = new PedidoResquest()
                 {
                     ID_USER = Id_Usuario,
-                    FECHA = Fecha_p.ToString("MM-dd-yyyy"),
+                   /* FECHA = Fecha_p.ToString("MM-dd-yyyy"),*/
                     ID_DIREC = Id_Direccion,
-                    ESTADO = Estado
+                    ESTADO = 1
                     };
                     PedidoResponse responose = await servicio.PostAsync<PedidoResponse>(datos);
                     if (responose != null)
                     {
 
                         Application.Current.MainPage.DisplayAlert("Mensaje", responose.MENSAJE, "OK");
-
-                    }
+                    await Application.Current.MainPage.Navigation.PushAsync(new ViewDetallePedido());
+                   
+                }
 
                
             });

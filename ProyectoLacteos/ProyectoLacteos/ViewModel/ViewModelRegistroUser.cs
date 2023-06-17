@@ -1,4 +1,5 @@
 ﻿using ProyectoLacteos.Modelo;
+using ProyectoLacteos.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,7 +44,7 @@ namespace ProyectoLacteos.ViewModel
                     {
 
                         Application.Current.MainPage.DisplayAlert("Mensaje", responose.MENSAJE, "OK");
-
+                        await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
                     }
                 }
             });
