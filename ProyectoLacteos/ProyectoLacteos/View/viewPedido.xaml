@@ -8,16 +8,48 @@
         <local:ViewModelPedido></local:ViewModelPedido>
 
     </ContentPage.BindingContext>
+    
+    
+    
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand" Padding="30">
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="20,0,20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Path Grid.Row="0" Margin="-20,0" Data="m132.34,154.23002l209.00002,0l0,0.66666c-66.50001,28 -156.50001,72.87853 -209.00002,96.76573l0,-97.43239z"
+                                        Stroke="#1C375C" Fill="#15992b" HeightRequest="220" Aspect="Fill" ></Path>
+            <Image  Grid.Row="0" Margin="-18,10,0,0" Source="logo2.png" Aspect="AspectFit" HeightRequest="150" WidthRequest="150" VerticalOptions="Start" HorizontalOptions="Start" ></Image>
+            <Label Grid.Row="1"  Text="¿Iniciar un Pedido?" Margin="0,-50,0,0" FontSize="24" FontAttributes="Bold" TextColor="#1C375C" 
+                                       HorizontalOptions="CenterAndExpand"></Label>
+
+            <Label Grid.Row="2" Margin="0,-15,0,0" Text="Elige la Direccción" FontAttributes="Bold" TextColor="#1C375C"  
+                                       HorizontalOptions="CenterAndExpand"></Label>
 
 
-            <Label Text="Crear Pedido" HorizontalOptions="Center" FontSize="24" FontAttributes="Bold" Margin="0,0,0,20" />
 
-            <Entry  Text="{Binding Id_Usuario}" Placeholder="ID Usuario" Keyboard="Numeric" Margin="0,0,0,10" />
-            <Entry  Text="{Binding Id_Direccion}" Placeholder="Id Direccion" Keyboard="Numeric" Margin="0,0,0,10" /> 
+            <Entry Grid.Row="3" Text="{Binding Id_Usuario}" Placeholder="ID Usuario" HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="FillAndExpand"></Entry>
 
-            <Button Command="{Binding crearPedido}"  Text="Crear Producto" BackgroundColor="#2196F3" TextColor="White" />
-        </StackLayout>
+            <Entry Grid.Row="4" Text="{Binding Id_Direccion}" Placeholder="Id Direccion" HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="FillAndExpand"></Entry>
+
+
+            <Button Grid.Row="7" Command="{Binding crearPedido}"  Text="Crear Producto" BackgroundColor="#15992b" TextColor="#ffffff" FontAttributes="Bold"  CornerRadius="20"></Button>
+
+
+
+            <Path Grid.Row="10" Margin="-20,0" Data="m333.5114,204.27502l115.48359,-59l-0.00813,123.08816c-101.06176,0.76114 -113.03789,-0.51177 -246.99185,-0.49297l131.51639,-63.59519z"
+                              Stroke="#1C375C" Fill="#15992b" HeightRequest="143" Aspect="Fill" ></Path>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

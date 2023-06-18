@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
                xmlns:local="clr-namespace:ProyectoLacteos.ViewModel"
-              
-             x:Class="ProyectoLacteos.View.ViewPerfil">
+                x:Class="ProyectoLacteos.View.ViewPerfil">
 
     <ContentPage.BindingContext>
         <local:ViewModelPerfil></local:ViewModelPerfil>
@@ -33,8 +32,8 @@
                                 <Image  Grid.Row="0" Margin="-18,10,0,0" Source="logo2.png" Aspect="AspectFit" HeightRequest="150" WidthRequest="150" VerticalOptions="Start" HorizontalOptions="Start" ></Image>
                                 <Label Grid.Row="1"  Text="Mi Perfil" Margin="0,-50,0,0" FontSize="24" FontAttributes="Bold" TextColor="#1C375C" 
                                        HorizontalOptions="CenterAndExpand"></Label>
-                            
-                                <Label Grid.Row="2" Margin="0,-15,0,0" Text="Puedes Actializar tus datos" TextColor="#1C375C"  
+
+                            <Label Grid.Row="2" Margin="0,-15,0,0" Text="Puedes Actializar tus datos" FontAttributes="Bold" TextColor="#1C375C"  
                                        HorizontalOptions="CenterAndExpand"></Label>
                             
                                 <Entry IsVisible="False" Text="{Binding id}"></Entry>
@@ -50,8 +49,8 @@
                             
                                 <Entry Grid.Row="6" x:Name="contrasena" Placeholder="Ingrese su nueva contraseña" IsPassword="True" Text="{Binding contrasena}" 
                                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
-                            
-                                <Button Grid.Row="9" Text="ACTUALIZAR" BackgroundColor="#e39619" TextColor="#ffffff" CornerRadius="20"></Button>
+
+                            <Button Grid.Row="9" Text="ACTUALIZAR" BackgroundColor="#e39619" TextColor="#ffffff" FontAttributes="Bold" CornerRadius="20"></Button>
                                 
 
 
