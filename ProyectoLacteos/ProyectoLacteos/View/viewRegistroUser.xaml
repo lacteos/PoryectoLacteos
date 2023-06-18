@@ -33,7 +33,7 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0"  Text="¡Nuevo usuario!" FontSize="24" FontAttributes="Bold" TextColor="#15992b" HorizontalOptions="CenterAndExpand"></Label>
-                <Label Grid.Row="1" Margin="0,-15,0,0" Text="Crea tu Cuenta" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Grid.Row="1" Margin="0,-15,0,0" Text="Crea tu Cuenta" FontAttributes="Bold" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
                     <Entry Grid.Row="2" Text="{Binding NombreUsuario}" Placeholder="Nombre completo" Keyboard="Text" Margin="0,20,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
                     <Entry Grid.Row="3" Text="{Binding Correo}" Placeholder="Ingrese su correo" IsPassword="True" Keyboard="Email" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
                     <Entry Grid.Row="4" Text="{Binding Telefono }" Placeholder="Numero telefónico" Keyboard="Numeric" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
@@ -41,7 +41,7 @@
                     <Entry Grid.Row="6" Text="{Binding  ConfirmacionContrasenia}" Placeholder="Confirme Contraseña" IsPassword="True" Keyboard="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
 
 
-                    <Button Grid.Row="8" Command="{Binding crearUsuario}"  Text="Registrarme" BackgroundColor="#15992b" TextColor="#ffffff" CornerRadius="20"></Button>
+                    <Button Grid.Row="8" Command="{Binding crearUsuario}"  Text="Registrarme" FontAttributes="Bold" BackgroundColor="#15992b" TextColor="#ffffff" CornerRadius="20"></Button>
 
                 <StackLayout Grid.Row="6" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="40">
 
