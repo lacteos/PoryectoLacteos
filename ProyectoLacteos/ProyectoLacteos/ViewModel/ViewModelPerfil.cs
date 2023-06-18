@@ -39,4 +39,7 @@ namespace ProyectoLacteos.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
     }
+
+
+
 }
