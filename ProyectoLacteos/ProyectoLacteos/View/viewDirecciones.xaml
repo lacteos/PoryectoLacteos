@@ -19,12 +19,22 @@
             <Entry Text="{Binding Direccion}" />
             <Label Text="Ingrese descripcion"></Label>
             <Entry Text="{Binding Descripcion}" />
-            <Label Text="Id user"></Label>
-            <Entry Text="{Binding }" />
 
-            <Button Text="Agregar" Command="{Binding AgregarDireccionCommand}" />
-            <Button Text="Actualizar" Command="{Binding ActualizarDireccionCommand}" />
-            <Button Text="Eliminar" Command="{Binding EliminarDireccionCommand}" />
+            <Picker x:Name="opcionPicker">
+                <Picker.ItemsSource Text="{Biding Id_usuario}">
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>CASA</x:String>
+                        <x:String>TRABAJO</x:String>
+                        <x:String>OTRO</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+          
+
+            <Button Text="Agregar" Command="{Binding AgregarDireccion}" />
+            <Button Text="Actualizar" Command="{Binding ActualizarDireccion}" />
+            <Button Text="Eliminar" Command="{Binding EliminarDireccion}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

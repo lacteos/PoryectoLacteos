@@ -11,6 +11,12 @@ namespace ProyectoLacteos.View
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void Aceptar_Clicked(object sender, EventArgs e)
+        {
+            string opcionSeleccionada = opcionPicker.SelectedItem.ToString();
+            DisplayAlert("Opción seleccionada", opcionSeleccionada, "Aceptar");
+        }
+    }
 }
 
