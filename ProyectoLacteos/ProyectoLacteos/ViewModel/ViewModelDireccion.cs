@@ -16,11 +16,18 @@ namespace ProyectoLacteos.ViewModel
     public class ViewModelDireccion : INotifyPropertyChanged
     {
 
-      
-        
+
+
+        public ViewModelDireccion(int Id_usuario)
+        {
+
+            this.id_usuario = Id_usuario;
+            getDirecciones();
+
+        }
 
         
-        
+
         public ViewModelDireccion()
         {
 
@@ -31,7 +38,9 @@ namespace ProyectoLacteos.ViewModel
                 getDirecciones();
 
             }
-                       );   
+                       ); 
+            
+
 
             AgregarDireccion = new Command(async () =>
             {
@@ -40,7 +49,8 @@ namespace ProyectoLacteos.ViewModel
                 GetDireccionesRequest datos = new GetDireccionesRequest()
                 {
                     DIRECT = Direccion,
-                    DESCRI = Descripcion
+                    DESCRI = Descripcion,
+                    id_usuario = Id_usuario
                 };
 
                 GetDireccionesRespond responose = await servicio.PostAsync<GetDireccionesRespond>(datos);
@@ -56,12 +66,13 @@ namespace ProyectoLacteos.ViewModel
 
             ActualizarDireccion = new Command(async () =>
             {
-                ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + id_usuario);
+                ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + id);
 
                 GetDireccionesRequest datos = new GetDireccionesRequest()
                 {
                     DESCRI = Descripcion,
                     DIRECT = Direccion
+                    
                 };
 
                 GetDireccionesRespond responose = await servicio.PostAsync<GetDireccionesRespond>(datos);
@@ -127,9 +138,21 @@ namespace ProyectoLacteos.ViewModel
             }
          }
 
-
         int id_usuario;
 
+        public int Id_usuario
+        {
+            get => Id_usuario;
+            set
+            {
+                Id_usuario = value;
+                var args = new PropertyChangedEventArgs(nameof(Id_usuario));
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
+
+        int id_usuar;
+        int id;
 
         public Command GetDirecciones { get; set; }
         public Command AgregarDireccion { get; set; }
