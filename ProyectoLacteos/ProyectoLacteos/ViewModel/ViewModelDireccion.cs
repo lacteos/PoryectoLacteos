@@ -12,111 +12,136 @@ using Xamarin.Forms;
 namespace ProyectoLacteos.ViewModel
 {
 
-    /// <summary>
-    /// 
-    /// </summary>
+    
     public class ViewModelDireccion : INotifyPropertyChanged
     {
-        private ObservableCollection<ItemDireccion> direcciones;
-        private ItemDireccion direccionSeleccionada;
 
-        public ObservableCollection<ItemDireccion> Direcciones
+      
+        
+
+        
+        
+        public ViewModelDireccion()
         {
 
-              get { return direcciones; }
-             set
+
+            GetDirecciones = new Command(async () =>
             {
-              direcciones = value;
-            OnPropertyChanged();
+
+                getDirecciones();
+
             }
+                       );   
 
-        }
-
-         public ItemDireccion DireccionSeleccionada
-         {
-           get { return direccionSeleccionada; }
-         set
-        {
-          direccionSeleccionada = value;
-         OnPropertyChanged();
-         }
-         }
-
-
-         public ViewModelDireccion()
-         {
-           direcciones = new ObservableCollection<ItemDireccion>();
-            CargarDirecciones();
-        }
-
-        public async void CargarDirecciones()
-        {
-            try
+            AgregarDireccion = new Command(async () =>
             {
-                using (HttpClient client = new HttpClient())
+                ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + id_usuario);
+
+                GetDireccionesRequest datos = new GetDireccionesRequest()
                 {
-                    string idUsuario = "21"; // Reemplaza esto con el ID del usuario correspondiente
-                    string url = $"https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/{idUsuario}";
+                    DIRECT = Direccion,
+                    DESCRI = Descripcion
+                };
 
-                    HttpResponseMessage response = await client.GetAsync(url);
-                    response.EnsureSuccessStatusCode();
+                GetDireccionesRespond responose = await servicio.PostAsync<GetDireccionesRespond>(datos);
 
-                    string jsonResponse = await response.Content.ReadAsStringAsync();
-                    Direcciones = JsonConvert.DeserializeObject<ObservableCollection<ItemDireccion>>(jsonResponse);
+                if (responose != null)
+                {
+
+                    Application.Current.MainPage.DisplayAlert("Mensaje", responose.MENSAJE, "OK");
+                    await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
                 }
             }
-            catch (Exception ex)
+            );
+
+            ActualizarDireccion = new Command(async () =>
             {
-                // Manejo de errores
-                Console.WriteLine($"Error al cargar las direcciones: {ex.Message}");
+                ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + id_usuario);
+
+                GetDireccionesRequest datos = new GetDireccionesRequest()
+                {
+                    DESCRI = Descripcion,
+                    DIRECT = Direccion
+                };
+
+                GetDireccionesRespond responose = await servicio.PostAsync<GetDireccionesRespond>(datos);
+
+                if (responose != null)
+                {
+
+                    Application.Current.MainPage.DisplayAlert("Mensaje", responose.MENSAJE, "OK");
+                    await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+                }
+            }
+            );
+
+        }
+
+
+       
+
+
+
+        public async void getDirecciones()
+        {
+
+            ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + id_usuario);
+            GetDirect response= await servicio.Get<GetDirect>();
+
+            foreach (ItemDireccion x in response.items)
+            {
+
+                listarDireccines.Add(x);
+
+            }
+
+        }
+
+
+
+
+        string direccion;
+
+        public string Direccion
+        {
+            get => direccion;
+            set
+            {
+                Direccion = value;
+                var args = new PropertyChangedEventArgs(nameof(Direccion));
+                PropertyChanged?.Invoke(this, args);
+
             }
         }
 
-            public void AgregarDireccion(string P_direccion, string P_descripcion)
-          {
-            ItemDireccion nuevaDireccion = new ItemDireccion()
-         {
-           direccion = P_direccion,
-         descripcion = P_descripcion
-         };
-          direcciones.Add(nuevaDireccion);
-          }
+        string descripcion;
 
-           public void ActualizarDireccion(string direccion, string descripcion)
+        public string Descripcion
+        {
+            get => descripcion;
+            set
             {
-            if (direccionSeleccionada != null)
-            {
-            direccionSeleccionada.direccion = direccion;
-           direccionSeleccionada.descripcion = descripcion;
+                Descripcion = value;
+                var args = new PropertyChangedEventArgs(nameof(Descripcion));
+                PropertyChanged?.Invoke(this, args);
+            }
          }
-           }
 
-           public void EliminarDireccion()
-         {
-           if (direccionSeleccionada != null)
-         {
-           direcciones.Remove(direccionSeleccionada);
-         direccionSeleccionada = null;
-         }
-           }
 
-         #region INotifyPropertyChanged
+        int id_usuario;
 
-         public event PropertyChangedEventHandler PropertyChanged;
 
-         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-         {
-           PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public Command GetDirecciones { get; set; }
+        public Command AgregarDireccion { get; set; }
+          public Command ActualizarDireccion { get; set; }
+         
+        public Command EliminarDireccion { get; set; }
 
-           #endregion
-
-         public Command AgregarDireccion1 { get; set; }
-          public Command ActualizarDireccion1 { get; set; }
-         public Command EliminarDireccion1 { get; set; }
-
+        public ObservableCollection<ItemDireccion> listarDireccines { get; set; } = new ObservableCollection<ItemDireccion>();
+        public event PropertyChangedEventHandler PropertyChanged;
     }
-            }
+}
+
 
    
 
