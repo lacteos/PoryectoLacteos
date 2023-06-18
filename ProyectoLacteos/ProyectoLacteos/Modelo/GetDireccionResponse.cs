@@ -19,6 +19,16 @@ namespace ProyectoLacteos.Modelo
         public string href { get; set; }
     }
 
-	
+    public class GetDireccionesResponse
+    {
+        public List<ItemDireccion> items { get; set; }
+        public bool hasMore { get; set; }
+        public int limit { get; set; }
+        public int offset { get; set; }
+        public int count { get; set; }
+        public List<LinkDireccion> links { get; set; }
+    }
+
+
 }
 
