@@ -7,7 +7,6 @@ namespace ProyectoLacteos.Modelo
     public class ItemCategoria
     {
 
-         
         public int id { get; set; }
         public string categoria { get; set; }
         public int activo { get; set; }

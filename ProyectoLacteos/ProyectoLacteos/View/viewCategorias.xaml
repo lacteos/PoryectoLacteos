@@ -10,27 +10,34 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="White">
 
-            <CollectionView  ItemsSource="{Binding listaCategorias}" SelectionMode="Single" >
+            <CollectionView  ItemsSource="{Binding listaCategorias}" SelectionMode="Single" 
+                             SelectedItem="{Binding CategoriaSeleccionada}" 
+                             SelectionChangedCommand="{Binding redirigirCategoria}">
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
+                        <Frame BackgroundColor="Green" Padding="10"
+                               CornerRadius="10">
+                            
+                            <Grid HeightRequest="50">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
 
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
 
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
+                                <Label Grid.Column="1" FontAttributes="Bold"
+                                       FontSize="Large" Text="{Binding categoria}"></Label>
 
-                            <Label Grid.Column="0" Grid.Row="0" Text="{Binding id }" ></Label>
-                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding categoria}"></Label>
-
-                        </Grid>
+                            </Grid>
+                        </Frame>
+                        
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
 
