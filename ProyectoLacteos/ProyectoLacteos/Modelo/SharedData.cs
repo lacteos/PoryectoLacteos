@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using static Xamarin.Essentials.Permissions;
 
 namespace ProyectoLacteos.Modelo
 {
@@ -8,9 +10,9 @@ namespace ProyectoLacteos.Modelo
     {
         public static string MyData { get; set; } //variable global que guarda el correo actual y puede ser leida en cualquier lado
 
-        public static string DataId { get; set; }
+        public static string DataId { get; set; } // variable global que guarda el id actual y puede ser leida en cualquier lado
 
-        public static string DataName { get; set; }
+        public static string DataName { get; set; } // variable global que guarda el nombre actual y puede ser leida en cualquier lado
 
     }
 }

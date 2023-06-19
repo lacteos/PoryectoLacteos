@@ -31,7 +31,8 @@ namespace ProyectoLacteos.ViewModel
             {
 
                 listaCategorias.Add(x);
-             
+              
+
 
             }
 
