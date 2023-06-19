@@ -2,48 +2,55 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoLacteos.View.viewCategorias"
-              xmlns:local="clr-namespace:ProyectoLacteos.ViewModel"
-             >
+             xmlns:local="clr-namespace:ProyectoLacteos.ViewModel"
+             BackgroundColor="#15992b">
 
     <ContentPage.BindingContext>
         <local:ViewModelCategoria></local:ViewModelCategoria>
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout BackgroundColor="White">
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Margin="0,30" Source="logo2.png" Aspect="AspectFit" HeightRequest="120" WidthRequest="80"></Image>
+            <Frame Grid.Row="1" Margin="0,0,0,-40" BorderColor="#1C375C" HasShadow="True"  CornerRadius="50" HeightRequest="700">
 
-            <CollectionView  ItemsSource="{Binding listaCategorias}" SelectionMode="Single" 
+                <CollectionView  ItemsSource="{Binding listaCategorias}" SelectionMode="Single" 
                              SelectedItem="{Binding CategoriaSeleccionada}" 
                              SelectionChangedCommand="{Binding redirigirCategoria}">
 
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame BackgroundColor="Green" Padding="10"
-                               CornerRadius="10">
-                            
-                            <Grid HeightRequest="50">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto" />
-                                    <RowDefinition Height="auto" />
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame  Padding="20" Margin="10" BorderColor="Green"        >
 
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto" />
-                                    <ColumnDefinition Width="auto" />
-                                </Grid.ColumnDefinitions>
+                                <Grid Margin="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        
 
-                                <Label Grid.Column="1" FontAttributes="Bold"
-                                       FontSize="Large" Text="{Binding categoria}"></Label>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        
+                                    </Grid.ColumnDefinitions>
+                                    
 
-                            </Grid>
-                        </Frame>
-                        
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
 
-            </CollectionView>
+                                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold"
+                                           FontSize="Large" Text="{Binding categoria}"></Label>
 
-        </StackLayout>
+                                </Grid>
+                            </Frame>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 
 </ContentPage>
