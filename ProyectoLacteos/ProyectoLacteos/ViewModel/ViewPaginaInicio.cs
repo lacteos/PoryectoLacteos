@@ -44,28 +44,25 @@ namespace ProyectoLacteos.ViewModel
                 await Application.Current.MainPage.Navigation.PushAsync(new ViewPerfil());
             });
 
-         
-            PropertyChanged += OnPropertyChanged;
         }
 
         public async Task cargarPerfil()
         {
-            string correo = SharedData.MyData;
-            string url = "https://apex.oracle.com/pls/apex/lacteos/Lacteos/perfil/" + correo;
-            ConsumoServicio servicio = new ConsumoServicio(url);
+            string correo = SharedData.MyData; // Obtiene el correo electrónico desde SharedData.MyData
+            string url = "https://apex.oracle.com/pls/apex/lacteos/Lacteos/perfil/" + correo; // Construye la URL utilizando el correo electrónico
+            ConsumoServicio servicio = new ConsumoServicio(url); // Crea una instancia de ConsumoServicio con la URL
 
-            GetPerfilResponse responsePerfil = await servicio.Get<GetPerfilResponse>();
+            GetPerfilResponse responsePerfil = await servicio.Get<GetPerfilResponse>(); // Obtiene la respuesta de perfil utilizando el método Get
 
-            foreach (ItemPerfil x in responsePerfil.items)
+            foreach (ItemPerfil x in responsePerfil.items) // Itera a través de los elementos de perfil obtenidos
             {
-                SharedData.DataId = x.id; 
-                SharedData.DataName = x.nombre; 
+                SharedData.DataId = x.id; // Asigna el valor de x.id a SharedData.DataId
+                SharedData.DataName = x.nombre; // Asigna el valor de x.nombre a SharedData.DataName
 
-                listaperfil.Add(x);
+               
             }
         }
 
-        public ObservableCollection<ItemPerfil> listaperfil { get; set; } = new ObservableCollection<ItemPerfil>();
 
         public Command navegarProducto { get; }
         public Command navegarCategorias { get; }
@@ -75,15 +72,7 @@ namespace ProyectoLacteos.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == nameof(listaperfil))
-            {
-                // Imprimir los valores de DataId y DataName en la consola
-                Console.WriteLine("DataId: " + SharedData.DataId);
-                Console.WriteLine("DataName: " + SharedData.DataName);
-            }
-        }
+       
     }
 }
 
