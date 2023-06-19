@@ -26,6 +26,7 @@
                             </Grid.ColumnDefinitions>
                             <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" Text="{Binding NOMBRE_PRODUCTO}" />
                             <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  Grid.Column="0" Grid.Row="1" Source="{Binding imagen}" />
+                            <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" Text="{Binding precio}" />
                             
                         </Grid>
                     </DataTemplate>
