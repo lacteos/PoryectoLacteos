@@ -66,12 +66,13 @@ namespace ProyectoLacteos.ViewModel
 
             ActualizarDireccion = new Command(async () =>
             {
-                ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + id);
+                ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/update_direccion/" + id);
 
                 GetDireccionesRequest datos = new GetDireccionesRequest()
                 {
-                    DESCRI = Descripcion,
-                    DIRECT = Direccion
+                    DIRECT = Direccion,
+                    DESCRI = Descripcion
+                    
                     
                 };
 
@@ -85,6 +86,10 @@ namespace ProyectoLacteos.ViewModel
                 }
             }
             );
+
+
+
+
 
         }
 
