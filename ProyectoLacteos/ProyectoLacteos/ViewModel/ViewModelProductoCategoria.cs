@@ -25,15 +25,7 @@ namespace ProyectoLacteos.ViewModel
 
         public ViewModelProductoCategoria()
         {
-            redirigirProducto = new Command(() => {
-
-
-                var pagina = new viewProductos();
-                Application.Current.MainPage.Navigation.PushAsync(pagina);
-
-
-            });
-
+            
         }
         
 
@@ -50,6 +42,7 @@ namespace ProyectoLacteos.ViewModel
 
                 GetProductoCategoriaImagen imgTmp = new GetProductoCategoriaImagen()
                 {
+                    ID_CATEGORIA = x.ID_CATEGORIA,
                     fotoBase64 = x.FOTO,
                     NOMBRE_PRODUCTO = x.NOMBRE_PRODUCTO,
                      unidad_medida= x.UNIDAD_MEDIDA,
@@ -73,7 +66,6 @@ namespace ProyectoLacteos.ViewModel
 
 
         int id_categoria;
-        public Command redirigirProducto { get; }
         public ObservableCollection<GetProductoCategoriaImagen> listaArticulo { get; set; } = new ObservableCollection<GetProductoCategoriaImagen>();
 
         public event PropertyChangedEventHandler PropertyChanged;

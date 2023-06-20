@@ -12,17 +12,28 @@
 
 
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand" Padding="30">
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding listaArticulo}" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" Text="{Binding NOMBRE_PRODUCTO}" />
+                            <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  Grid.Column="0" Grid.Row="1" Source="{Binding imagen}" />
+                            <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" Text="{Binding precio}" />
+                            
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
 
-            <Label Text="Crear Producto" HorizontalOptions="Center" FontSize="24" FontAttributes="Bold" Margin="0,0,0,20" />
-
-            <Entry  Text="{Binding FOTO}" Placeholder="Foto" Keyboard="Url" Margin="0,0,0,10" />
-            <Entry  Text="{Binding NOMBRE_PRODUCTO}" Placeholder="Nombre del Producto" Keyboard="Text" Margin="0,0,0,10" />
-            <Entry  Text="{Binding UNIDAD_MEDIDA }" Placeholder="Unidad de Medida" Keyboard="Numeric" Margin="0,0,0,10" />
-            <Entry  Text="{Binding PRECIO}" Placeholder="Precio" Keyboard="Numeric" Margin="0,0,0,10" />
-
-            <Button Command="{Binding crearProducto}"  Text="Crear Producto" BackgroundColor="#2196F3" TextColor="White" />
         </StackLayout>
     </ContentPage.Content>
 

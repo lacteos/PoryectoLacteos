@@ -7,6 +7,7 @@ namespace ProyectoLacteos.Modelo
     
     public class ItemProductoCategoria
     {
+        public int ID_CATEGORIA { get; set; }
         public string FOTO { get; set; }
         public string NOMBRE_PRODUCTO { get; set; }
         public int UNIDAD_MEDIDA { get; set; }
