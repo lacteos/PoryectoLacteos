@@ -12,20 +12,69 @@
 
 
 
-    <StackLayout>
-        <CollectionView ItemsSource="{Binding listarDireccines}" SelectionMode="Single">
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="50" ></RowDefinition>
+            <RowDefinition Height="50" ></RowDefinition>
+            <RowDefinition Height="50" ></RowDefinition>
+            <RowDefinition Height="50" ></RowDefinition>
+            <RowDefinition Height="50" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" ></ColumnDefinition>
+            <ColumnDefinition Width="*" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label VerticalTextAlignment="End"  Text="Direccion" Grid.Column="0" Grid.Row="0" />
+        <Entry Text="{Binding Direccion}" Grid.Column="1" Grid.Row="0" />
+
+        <Label VerticalTextAlignment="End" Text="Descripcion" Grid.Column="0" Grid.Row="1" />
+        <Entry Text="{Binding Descripcion}" Grid.Column="1" Grid.Row="1" />
+
+        
+        <Button Command="{Binding AgregarDireccion}" Text="Crear" Grid.Column="0" Grid.Row="3"  />
+        <Button Command="{Binding ActualizarDireccion}" Text="Actualizar" Grid.Column="1" Grid.Row="3"  />
+        
+        <Button Command="{Binding GetDirecciones}" Text="Get direcc" Grid.Column="0" Grid.Row="4"  Grid.ColumnSpan="2"   />
+
+        <CollectionView Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0" 
+                        
+                        SelectionMode="Single"  
+                        ItemsSource="{Binding listarDireccines}"
+                       
+                        >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
 
-                    
-                    <Picker Text="{Binding direccion}"></Picker>
+                    <Grid Padding="10">
 
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" ></ColumnDefinition>
+                            <ColumnDefinition Width="*" ></ColumnDefinition>
+                            <ColumnDefinition Width="*" ></ColumnDefinition>
+                            
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="{Binding id}"  Grid.Row="0" Grid.Column="0" />
+                        <Label Text="{Binding direccion}" Grid.Row="0" Grid.Column="1"/>
+                        <Label Text="{Binding descripcion}"  Grid.Row="0" Grid.Column="2"/>
+                        
+
+                    </Grid>
 
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </StackLayout>
-    
+
+    </Grid>
 
 
 

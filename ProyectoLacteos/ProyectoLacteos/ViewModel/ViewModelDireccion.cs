@@ -18,26 +18,16 @@ namespace ProyectoLacteos.ViewModel
 
 
 
-        public ViewModelDireccion(int Id_usuario)
-        {
-
-            
-            getDirecciones();
-
-        }
-
-        
-
         public ViewModelDireccion()
         {
 
+            GetDirecciones = new Command(async () =>
+            {
+                getDirecciones();
+            });
 
-            
-                       
-            
 
-
-            AgregarDireccion = new Command(async () =>
+                AgregarDireccion = new Command(async () =>
             {
                 ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + id_usuario);
 
@@ -151,6 +141,24 @@ namespace ProyectoLacteos.ViewModel
                 PropertyChanged?.Invoke(this, args);
             }
         }
+
+        ItemDireccion direccionSeleccionada = new ItemDireccion();
+
+        public ItemDireccion DireccionSeleccionada
+        {
+
+            get => direccionSeleccionada;
+            set
+            {
+
+                direccionSeleccionada = value;
+                var args = new PropertyChangedEventArgs(nameof(DireccionSeleccionada));
+                PropertyChanged?.Invoke(this, args);
+
+            }
+
+        }
+
 
         int id_usuar;
         int id;
