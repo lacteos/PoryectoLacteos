@@ -111,7 +111,7 @@ namespace ProyectoLacteos.ViewModel
             get => direccion;
             set
             {
-                Direccion = value;
+                direccion = value;
                 var args = new PropertyChangedEventArgs(nameof(Direccion));
                 PropertyChanged?.Invoke(this, args);
 
@@ -125,7 +125,7 @@ namespace ProyectoLacteos.ViewModel
             get => descripcion;
             set
             {
-                Descripcion = value;
+                descripcion = value;
                 var args = new PropertyChangedEventArgs(nameof(Descripcion));
                 PropertyChanged?.Invoke(this, args);
             }
