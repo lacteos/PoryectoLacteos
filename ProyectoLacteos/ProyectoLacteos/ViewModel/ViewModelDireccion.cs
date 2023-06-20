@@ -29,7 +29,9 @@ namespace ProyectoLacteos.ViewModel
 
                 AgregarDireccion = new Command(async () =>
             {
-                ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + id_usuario);
+
+                string algo = SharedData.DataId;
+                ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + algo);
 
                 ItemDireccion datos = new ItemDireccion()
                 {
