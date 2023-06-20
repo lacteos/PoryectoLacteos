@@ -21,7 +21,7 @@ namespace ProyectoLacteos.ViewModel
         public ViewModelDireccion(int Id_usuario)
         {
 
-            this.id_usuario = Id_usuario;
+            
             getDirecciones();
 
         }
@@ -32,13 +32,8 @@ namespace ProyectoLacteos.ViewModel
         {
 
 
-            GetDirecciones = new Command(async () =>
-            {
-
-                getDirecciones();
-
-            }
-                       ); 
+            
+                       
             
 
 
@@ -46,11 +41,11 @@ namespace ProyectoLacteos.ViewModel
             {
                 ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + id_usuario);
 
-                GetDireccionesRequest datos = new GetDireccionesRequest()
+                ItemDireccion datos = new ItemDireccion()
                 {
-                    DIRECT = Direccion,
-                    DESCRI = Descripcion,
-                    id_usuario = Id_usuario
+                    direccion = Direccion,
+                    descripcion = Descripcion,
+                    
                 };
 
                 GetDireccionesRespond responose = await servicio.PostAsync<GetDireccionesRespond>(datos);
@@ -68,10 +63,10 @@ namespace ProyectoLacteos.ViewModel
             {
                 ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/update_direccion/" + id);
 
-                GetDireccionesRequest datos = new GetDireccionesRequest()
+                ItemDireccion datos = new ItemDireccion()
                 {
-                    DIRECT = Direccion,
-                    DESCRI = Descripcion
+                    direccion = Direccion,
+                    descripcion = Descripcion
                     
                     
                 };
@@ -100,9 +95,10 @@ namespace ProyectoLacteos.ViewModel
 
         public async void getDirecciones()
         {
-
-            ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + id_usuario);
-            GetDirect response= await servicio.Get<GetDirect>();
+            string algo = SharedData.DataId;
+            string url = "https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + algo;
+            ConsumoServicio servicio = new ConsumoServicio(url);
+            GetDireccionesRequest response= await servicio.Get<GetDireccionesRequest>();
 
             foreach (ItemDireccion x in response.items)
             {
