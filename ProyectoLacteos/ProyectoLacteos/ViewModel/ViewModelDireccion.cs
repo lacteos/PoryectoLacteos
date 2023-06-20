@@ -31,7 +31,7 @@ namespace ProyectoLacteos.ViewModel
             {
 
                 string algo = SharedData.DataId;
-                ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + algo);
+                ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" +algo);
 
                 ItemDireccion datos = new ItemDireccion()
                 {
@@ -46,7 +46,7 @@ namespace ProyectoLacteos.ViewModel
                 {
 
                     Application.Current.MainPage.DisplayAlert("Mensaje", responose.MENSAJE, "OK");
-                    await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+                    
                 }
             }
             );
@@ -69,7 +69,7 @@ namespace ProyectoLacteos.ViewModel
                 {
 
                     Application.Current.MainPage.DisplayAlert("Mensaje", responose.MENSAJE, "OK");
-                    await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
+                    
                 }
             }
             );
