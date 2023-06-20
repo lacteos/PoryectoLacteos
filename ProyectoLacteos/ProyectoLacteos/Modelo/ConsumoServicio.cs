@@ -20,6 +20,7 @@ namespace ProyectoLacteos.Modelo
 
         }
 
+        /*GET*/
         public async Task<T> Get<T>()
         {
 
@@ -51,7 +52,7 @@ namespace ProyectoLacteos.Modelo
             return default(T);
         }
 
-
+        /*POST*/
         public async Task<T> PostAsync<T>(Object obj)
         {
 
@@ -80,6 +81,72 @@ namespace ProyectoLacteos.Modelo
                 Application.Current.MainPage.DisplayAlert("Error", "Error al consumir web service", "Cancelar");
             }
 
+
+            return default(T);
+        }
+
+
+        /*PUT SERVICIO*/
+        public async Task<T> PutAsync<T>(Object obj)
+        {
+
+
+
+            try
+            {
+                HttpClient cliente = new HttpClient();
+
+                string jsonData = JsonConvert.SerializeObject(obj);
+                var formData = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonData);
+                var content = new FormUrlEncodedContent(formData);
+                var response = await cliente.PutAsync(url, content);
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK && response != null)
+                {
+
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(jsonString);
+
+                }
+
+            }
+            catch
+            {
+                Application.Current.MainPage.DisplayAlert("Error", "Error al consumir web service", "Cancelar");
+            }
+
+
+            return default(T);
+        }
+
+        /*DELETE CONSUMO SERVICIO*/
+        public async Task<T> Delete<T>()
+        {
+
+            try
+            {
+
+                HttpClient cliente = new HttpClient();
+
+                var response = await cliente.DeleteAsync(url);
+
+
+                if (response.StatusCode == System.Net.HttpStatusCode.OK && response != null)
+                {
+
+
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(jsonString);
+
+                }
+
+
+            }
+            catch
+            {
+                Application.Current.MainPage.DisplayAlert("Error", "Error al consumir web service", "Cancelar");
+
+            }
 
             return default(T);
         }

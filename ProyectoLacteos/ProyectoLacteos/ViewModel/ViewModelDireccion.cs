@@ -75,7 +75,7 @@ namespace ProyectoLacteos.ViewModel
                     
                 };
 
-                GetDireccionesRespond responose = await servicio.PostAsync<GetDireccionesRespond>(datos);
+                GetDireccionesRespond responose = await servicio.PutAsync<GetDireccionesRespond>(datos);
 
                 if (responose != null)
                 {
