@@ -36,11 +36,14 @@
                                        HorizontalOptions="CenterAndExpand"></Label>
 
 
+            <Label Grid.Row="3" Text="{Binding Id_Usuario}" HorizontalOptions="FillAndExpand" 
+       VerticalOptions="FillAndExpand"></Label>
 
-            <Entry Grid.Row="3" Text="{Binding Id_Usuario}" Placeholder="ID Usuario" HorizontalOptions="FillAndExpand" 
-                   VerticalOptions="FillAndExpand"></Entry>
+            <Label Grid.Row="4" Text="{Binding Nombre_Usuario}" HorizontalOptions="FillAndExpand" 
+       VerticalOptions="FillAndExpand"></Label>
 
-            <Entry Grid.Row="4" Text="{Binding Id_Direccion}" Placeholder="Id Direccion" HorizontalOptions="FillAndExpand" 
+
+            <Entry Grid.Row="5" Text="{Binding Id_Direccion}" Keyboard="Numeric" Placeholder="Id Direccion" HorizontalOptions="FillAndExpand" 
                    VerticalOptions="FillAndExpand"></Entry>
 
 

@@ -24,7 +24,7 @@ namespace ProyectoLacteos.ViewModel
 
                 PedidoResquest datos = new PedidoResquest()
                 {
-                    ID_USER = Id_Usuario,
+                    ID_USER = int.Parse(Id_Usuario),
                    /* FECHA = Fecha_p.ToString("MM-dd-yyyy"),*/
                     ID_DIREC = Id_Direccion,
                     ESTADO = 1
@@ -48,18 +48,16 @@ namespace ProyectoLacteos.ViewModel
 
 
 
-        int id_usuario;
+       
 
-        public int Id_Usuario
+        public string Id_Usuario
         {
-            get => id_usuario;
-            set
-            {
-                id_usuario = value;
-                var args = new PropertyChangedEventArgs(nameof(Id_Usuario));
-                PropertyChanged?.Invoke(this, args);
+            get => SharedData.DataId;
+        }
 
-            }
+        public string Nombre_Usuario
+        {
+            get => SharedData.DataName;
         }
 
         int id_direccion;

@@ -2,13 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoLacteos.View.ViewDetallePedido"
-             xmlns:local="clr-namespace:ProyectoLacteos.ViewModel"
-             >
+             xmlns:local="clr-namespace:ProyectoLacteos.ViewModel">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Categoría:" />
+            <Picker x:Name="CategoriaPicker" />
+
+            <Label Text="Producto:" />
+            <Picker x:Name="ProductoPicker" />
+
+            <Label Text="Cantidad:" />
+            <Entry x:Name="CantidadEntry" Keyboard="Numeric" Placeholder="Ingrese la cantidad" />
+
+            <Label Text="Unidad de medida:" />
+            <Picker x:Name="UnidadMedidaPicker">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Libras</x:String>
+                        <x:String>Litros</x:String>
+                        <x:String>Onzas</x:String>
+                        <x:String>Unidad</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
