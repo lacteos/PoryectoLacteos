@@ -27,8 +27,37 @@ namespace ProyectoLacteos.ViewModel
                 getDirecciones();
             });
 
+            ActualizarDireccion = new Command(async () =>
+            {
+                string algo = SharedData.DataId;
+                var url = "https://apex.oracle.com/pls/apex/lacteos/Lacteos/update_direccion/" + DireccionSeleccionada.id;
+                ConsumoServicio servicio = new ConsumoServicio(url);
 
-                AgregarDireccion = new Command(async () =>
+
+                Id = DireccionSeleccionada.id;
+                Id_usuario = algo;
+                ItemDireccion datos = new ItemDireccion()
+                {
+
+                    id = Id,
+                    direccion = Direccion,
+                    descripcion = Descripcion,
+                    id_usuario = Id_usuario
+
+                };
+
+                GetDireccionesRespond responose = await servicio.PutAsync<GetDireccionesRespond>(datos);
+
+                if (responose != null)
+                {
+
+                    Application.Current.MainPage.DisplayAlert("Mensaje", responose.MENSAJE, "OK");
+
+                }
+            }
+            );
+
+            AgregarDireccion = new Command(async () =>
             {
 
                 string algo = SharedData.DataId;
@@ -36,6 +65,7 @@ namespace ProyectoLacteos.ViewModel
 
                 ItemDireccion datos = new ItemDireccion()
                 {
+                    
                     direccion = Direccion,
                     descripcion = Descripcion,
                     id_usuario = algo
@@ -52,38 +82,6 @@ namespace ProyectoLacteos.ViewModel
                 }
             }
             );
-
-            ActualizarDireccion = new Command(async () =>
-            {
-                string algo = SharedData.DataId;
-                var url = "https://apex.oracle.com/pls/apex/lacteos/Lacteos/update_direccion/" + DireccionSeleccionada.id;
-                ConsumoServicio servicio = new ConsumoServicio(url);
-
-
-                Id = DireccionSeleccionada.id;
-                Id_usuario = algo;
-                ItemDireccion datos = new ItemDireccion()
-                {
-                    
-                    id = Id,
-                    direccion = Direccion,
-                    descripcion = Descripcion,
-                    id_usuario = Id_usuario
-
-                };
-
-                GetDireccionesRespond responose = await servicio.PutAsync<GetDireccionesRespond>(datos);
-
-                if (responose != null)
-                {
-
-                    Application.Current.MainPage.DisplayAlert("Mensaje", responose.MENSAJE, "OK");
-                    
-                }
-            }
-            );
-
-
 
 
 
@@ -110,6 +108,22 @@ namespace ProyectoLacteos.ViewModel
 
         }
 
+        ItemDireccion direccionSeleccionada = new ItemDireccion();
+
+        public ItemDireccion DireccionSeleccionada
+        {
+
+            get => direccionSeleccionada;
+            set
+            {
+
+                direccionSeleccionada = value;
+                var args = new PropertyChangedEventArgs(nameof(DireccionSeleccionada));
+                PropertyChanged?.Invoke(this, args);
+
+            }
+
+        }
 
 
 
@@ -153,24 +167,7 @@ namespace ProyectoLacteos.ViewModel
             }
         }
 
-        ItemDireccion direccionSeleccionada = new ItemDireccion();
-
-        public ItemDireccion DireccionSeleccionada
-        {
-
-            get => direccionSeleccionada;
-            set
-            {
-
-                direccionSeleccionada = value;
-                var args = new PropertyChangedEventArgs(nameof(DireccionSeleccionada));
-                PropertyChanged?.Invoke(this, args);
-
-            }
-
-        }
-
-        int id_usuar;
+        
 
         string id;
         public string Id
@@ -183,9 +180,10 @@ namespace ProyectoLacteos.ViewModel
                 PropertyChanged?.Invoke(this, args);
             }
         }
+
         public Command GetDirecciones { get; set; }
         public Command AgregarDireccion { get; set; }
-          public Command ActualizarDireccion { get; set; }
+        public Command ActualizarDireccion { get; set; }
          
         public Command EliminarDireccion { get; set; }
 

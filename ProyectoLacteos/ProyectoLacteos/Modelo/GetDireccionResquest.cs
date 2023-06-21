@@ -27,7 +27,7 @@ namespace ProyectoLacteos.Modelo
         public int limit { get; set; }
         public int offset { get; set; }
         public int count { get; set; }
-        public List<Link> links { get; set; }
+        public List<LinkDireccion> links { get; set; }
     }
 
 

@@ -30,10 +30,10 @@
         </Grid.ColumnDefinitions>
 
         <Label VerticalTextAlignment="End"  Text="Direccion" Grid.Column="0" Grid.Row="0" />
-        <Entry x:Name="direccion" ClassId="direccion" Text="{Binding Direccion}" Grid.Column="1" Grid.Row="0" />
+        <Entry x:Name="Direccion" ClassId="Direccion" Text="{Binding Direccion}" Grid.Column="1" Grid.Row="0" />
 
         <Label  VerticalTextAlignment="End" Text="Descripcion" Grid.Column="0" Grid.Row="1" />
-        <Entry x:Name="descripcion" ClassId="descripcion" Text="{Binding Descripcion}" Grid.Column="1" Grid.Row="1" />
+        <Entry x:Name="Descripcion" ClassId="Descripcion" Text="{Binding Descripcion}" Grid.Column="1" Grid.Row="1" />
 
         
         <Button Command="{Binding AgregarDireccion}" Text="Crear" Grid.Column="0" Grid.Row="3"  />
