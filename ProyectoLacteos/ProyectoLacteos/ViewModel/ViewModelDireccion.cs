@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using ProyectoLacteos.Modelo;
 using Xamarin.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace ProyectoLacteos.ViewModel
 {
@@ -37,6 +38,7 @@ namespace ProyectoLacteos.ViewModel
                 {
                     direccion = Direccion,
                     descripcion = Descripcion,
+                    id_usuario = algo
                     
                 };
 
@@ -53,14 +55,21 @@ namespace ProyectoLacteos.ViewModel
 
             ActualizarDireccion = new Command(async () =>
             {
-                ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/update_direccion/" + id);
+                string algo = SharedData.DataId;
+                var url = "https://apex.oracle.com/pls/apex/lacteos/Lacteos/update_direccion/" + DireccionSeleccionada.id;
+                ConsumoServicio servicio = new ConsumoServicio(url);
 
+
+                Id = DireccionSeleccionada.id;
+                Id_usuario = algo;
                 ItemDireccion datos = new ItemDireccion()
                 {
+                    
+                    id = Id,
                     direccion = Direccion,
-                    descripcion = Descripcion
-                    
-                    
+                    descripcion = Descripcion,
+                    id_usuario = Id_usuario
+
                 };
 
                 GetDireccionesRespond responose = await servicio.PutAsync<GetDireccionesRespond>(datos);
@@ -131,14 +140,14 @@ namespace ProyectoLacteos.ViewModel
             }
          }
 
-        int id_usuario;
+        string id_usuario;
 
-        public int Id_usuario
+        public string Id_usuario
         {
-            get => Id_usuario;
+            get => id_usuario;
             set
             {
-                Id_usuario = value;
+                id_usuario = value;
                 var args = new PropertyChangedEventArgs(nameof(Id_usuario));
                 PropertyChanged?.Invoke(this, args);
             }
@@ -161,10 +170,19 @@ namespace ProyectoLacteos.ViewModel
 
         }
 
-
         int id_usuar;
-        int id;
 
+        string id;
+        public string Id
+        {
+            get => id;
+            set
+            {
+                id = value;
+                var args = new PropertyChangedEventArgs(nameof(Id));
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
         public Command GetDirecciones { get; set; }
         public Command AgregarDireccion { get; set; }
           public Command ActualizarDireccion { get; set; }

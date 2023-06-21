@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace ProyectoLacteos.Modelo
-{
-
-    
+{    
 
     public class ItemDireccion
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public string direccion { get; set; }
         public string descripcion { get; set; }
+
+        public string id_usuario { get; set; }
     }
 
     public class LinkDireccion
