@@ -38,9 +38,9 @@
                         <RowDefinition Height="Auto"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0"  Text="¡Bienvenido!" FontSize="24" FontAttributes="Bold" TextColor="#15992b" HorizontalOptions="CenterAndExpand"></Label>
-                    <Label Grid.Row="1" Margin="0,-15,0,0" Text="Inicia sesión con tu Cuenta" FontAttributes="Bold" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
-                    <Entry Grid.Row="2" Placeholder="Correo electrónico" Text="{Binding Correo}" Margin="0,20,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
-                    <Entry Grid.Row="3" Placeholder="Contraseña" Text="{Binding Contrasenia}" IsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                    <Label Grid.Row="1" Margin="0,-15,0,0" Text="Inicia sesión con tu Cuenta"  FontAttributes="Bold" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <Entry Grid.Row="2" Placeholder="Correo electrónico" PlaceholderColor="Black" Text="{Binding Correo}" TextColor="Black" Margin="0,20,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                    <Entry Grid.Row="3" Placeholder="Contraseña" PlaceholderColor="Black" Text="{Binding Contrasenia}" TextColor="Black" IsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
                     <Button Grid.Row="4" Text="Entrar" Command="{Binding autenticacion}" BackgroundColor="#15992b" FontAttributes="Bold" TextColor="#ffffff" CornerRadius="20"></Button>
                     
                     <StackLayout Grid.Row="6" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="40">

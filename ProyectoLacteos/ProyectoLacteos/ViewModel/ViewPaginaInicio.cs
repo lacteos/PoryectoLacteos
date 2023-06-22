@@ -26,6 +26,7 @@ namespace ProyectoLacteos.ViewModel
                 await cargarPerfil();
                 await Application.Current.MainPage.Navigation.PushAsync(new viewCategorias());
             });
+
             navegarPedido = new Command(async () =>
             {
                 await cargarPerfil();

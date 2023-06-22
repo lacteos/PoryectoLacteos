@@ -38,18 +38,19 @@ namespace ProyectoLacteos.ViewModel
                 Id_usuario = algo;
                 ItemDireccion datos = new ItemDireccion()
                 {
-
                     id = Id,
                     direccion = Direccion,
                     descripcion = Descripcion,
                     id_usuario = Id_usuario
-
                 };
 
                 GetDireccionesRespond responose = await servicio.PutAsync<GetDireccionesRespond>(datos);
 
                 if (responose != null)
                 {
+
+
+
 
                     Application.Current.MainPage.DisplayAlert("Mensaje", responose.MENSAJE, "OK");
 
