@@ -25,7 +25,7 @@ namespace ProyectoLacteos.ViewModel
                 DetallePedidoRequest datos = new DetallePedidoRequest()
                 {
                     ID_PRODUCT = Id_product,
-                    ID_PED = id_pedido,
+                    ID_PED = SharedData.Id_pedido,
                     CANT = Cantidad
                 };
                 DetallePedidoRespond responose = await servicio.PostAsync<DetallePedidoRespond>(datos);

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static ProyectoLacteos.View.ViewDetallePedido;
 
 namespace ProyectoLacteos.View
 {
@@ -13,6 +14,8 @@ namespace ProyectoLacteos.View
     {
         private HttpClient httpClient;
         private List<string> categorias;
+        private string categProducto;
+
 
         public ViewDetallePedido()
         {
@@ -22,8 +25,16 @@ namespace ProyectoLacteos.View
             categorias = new List<string>();
 
             CargarCategorias();
-           
+            
         }
+        private async void CategoriaEntry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Ejecutar CargarProductos()
+           
+            await CargarProductos();
+
+        }
+
 
         private async void CargarCategorias()
         {
@@ -40,11 +51,22 @@ namespace ProyectoLacteos.View
                     foreach (var item in categoriasData.items)
                     {
                         categorias.Add(item.categoria);
+                        
+
                     }
 
                     CategoriaPicker.ItemsSource = categorias;
+                    CategoriaPicker.SelectedIndexChanged += (sender, e) =>
+                    {
+                        var selectedCategoria = CategoriaPicker.SelectedItem?.ToString();
+                        var selectedItem = categoriasData.items.Find(x => x.categoria == selectedCategoria);
+                        CategoriaEntry.Text = selectedItem?.id.ToString();
+                       
 
-                    await CargarProductos(); 
+
+                    };
+
+                   
                 }
                 else
                 {
@@ -53,17 +75,18 @@ namespace ProyectoLacteos.View
             }
             catch (Exception ex)
             {
-              
                 await DisplayAlert("Error", "Ocurrió un error al cargar las categorías.", "OK");
             }
         }
 
-
+        
+        
         private async Task CargarProductos()
         {
             try
             {
-                string productosUrl = "https://apex.oracle.com/pls/apex/lacteos/Lacteos/productos";
+                categProducto = CategoriaEntry.Text;
+                string productosUrl = "https://apex.oracle.com/pls/apex/lacteos/Lacteos/producto/" + categProducto;
                 HttpResponseMessage productosResponse = await httpClient.GetAsync(productosUrl);
 
                 if (productosResponse.IsSuccessStatusCode)
@@ -78,19 +101,26 @@ namespace ProyectoLacteos.View
                     }
 
                     ProductoPicker.ItemsSource = productos;
+                    ProductoPicker.SelectedIndexChanged += (sender, e) =>
+                    {
+                        var selectedProducto = ProductoPicker.SelectedItem?.ToString();
+                        var selectedItem = productosData.items.Find(x => x.nombre_producto == selectedProducto);
+                        ProductoEntry.Text = selectedItem?.id.ToString();
+                        LabelPrecio.Text = selectedItem?.precio.ToString();
+                    };
                 }
                 else
                 {
-                    
                     await DisplayAlert("Error", "No se pudieron cargar los productos.", "OK");
                 }
             }
             catch (Exception ex)
             {
-                
                 await DisplayAlert("Error", "Ocurrió un error al cargar los productos.", "OK");
             }
         }
+
+
 
         public class Item
         {
@@ -118,6 +148,7 @@ namespace ProyectoLacteos.View
 
         public class Producto
         {
+            public int id { get; set; }
             public string nombre_producto { get; set; }
             public int id_categoria { get; set; }
             public decimal precio { get; set; }
@@ -133,7 +164,8 @@ namespace ProyectoLacteos.View
             public int count { get; set; }
             public List<Link> links { get; set; }
         }
-
-
     }
+
+
+    
 }

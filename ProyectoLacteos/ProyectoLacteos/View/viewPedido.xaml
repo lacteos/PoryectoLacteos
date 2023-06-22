@@ -36,15 +36,28 @@
                                        HorizontalOptions="CenterAndExpand"></Label>
 
 
-            <Label Grid.Row="3" Text="{Binding Id_Usuario}" HorizontalOptions="FillAndExpand" 
+            <Label Grid.Row="3" Text="{Binding Id_Usuario}"  HorizontalOptions="FillAndExpand" 
        VerticalOptions="FillAndExpand"></Label>
 
             <Label Grid.Row="4" Text="{Binding Nombre_Usuario}" HorizontalOptions="FillAndExpand" 
        VerticalOptions="FillAndExpand"></Label>
 
+        
 
-            <Entry Grid.Row="5" Text="{Binding Id_Direccion}" Keyboard="Numeric" Placeholder="Id Direccion" HorizontalOptions="FillAndExpand" 
+            <Entry Grid.Row="5" Text="{Binding Id_Direccion}" Keyboard="Numeric" x:Name="labeldireccion" Placeholder="Id Direccion" HorizontalOptions="FillAndExpand" 
                    VerticalOptions="FillAndExpand"></Entry>
+
+
+            <Picker Grid.Row="6" x:Name="direccionPicker"  Title="Elige una dirección">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <!-- Aquí se cargarán los valores del resultado de la solicitud GET -->
+                     
+                        <!-- ... -->
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
 
 
             <Button Grid.Row="7" Command="{Binding crearPedido}"  Text="Crear Producto" BackgroundColor="#15992b" TextColor="#ffffff" FontAttributes="Bold"  CornerRadius="20"></Button>

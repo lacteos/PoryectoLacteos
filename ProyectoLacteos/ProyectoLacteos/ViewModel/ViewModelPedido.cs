@@ -34,6 +34,7 @@ namespace ProyectoLacteos.ViewModel
                     {
 
                         Application.Current.MainPage.DisplayAlert("Mensaje", responose.MENSAJE, "OK");
+                    SharedData.Id_pedido = responose.ID_PEDIDO;
                     await Application.Current.MainPage.Navigation.PushAsync(new ViewDetallePedido());
                    
                 }

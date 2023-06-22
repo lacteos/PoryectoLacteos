@@ -3,16 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoLacteos.View.ViewDetallePedido"
              xmlns:local="clr-namespace:ProyectoLacteos.ViewModel">
+
+    <ContentPage.BindingContext>
+
+        <local:ViewModelDetallePedido></local:ViewModelDetallePedido>
+
+    </ContentPage.BindingContext>
+
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Categoría:" />
             <Picker x:Name="CategoriaPicker" />
+            <Entry  x:Name="CategoriaEntry" TextChanged="CategoriaEntry_TextChanged"></Entry>
+
 
             <Label Text="Producto:" />
             <Picker x:Name="ProductoPicker" />
+            
+            <Entry Text="{Binding Id_product}" x:Name="ProductoEntry"></Entry>
+            
+            <Label Text="Precio:"></Label>
+            <Label x:Name="LabelPrecio"></Label>
 
             <Label Text="Cantidad:" />
-            <Entry x:Name="CantidadEntry" Keyboard="Numeric" Placeholder="Ingrese la cantidad" />
+            <Entry Text="{Binding Cantidad}" x:Name="CantidadEntry" Keyboard="Numeric" Placeholder="Ingrese la cantidad" />
 
             <Label Text="Unidad de medida:" />
             <Picker x:Name="UnidadMedidaPicker">
@@ -25,6 +40,8 @@
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
+
+            <Button Command="{Binding crearDetallePedido}" Text="Añadir producto a pedido"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

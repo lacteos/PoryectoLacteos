@@ -14,5 +14,7 @@ namespace ProyectoLacteos.Modelo
 
         public static string DataName { get; set; } // variable global que guarda el nombre actual y puede ser leida en cualquier lado
 
+        public static int Id_pedido { get; set; } // variable global que guarda el pedido actual
+
     }
 }
