@@ -97,8 +97,7 @@ namespace ProyectoLacteos.Modelo
                 HttpClient cliente = new HttpClient();
 
                 string jsonData = JsonConvert.SerializeObject(obj);
-                var formData = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonData);
-                var content = new FormUrlEncodedContent(formData);
+                var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
                 var response = await cliente.PutAsync(url, content);
 
                 if (response.StatusCode == System.Net.HttpStatusCode.OK && response != null)
@@ -118,6 +117,7 @@ namespace ProyectoLacteos.Modelo
 
             return default(T);
         }
+
 
         /*DELETE CONSUMO SERVICIO*/
         public async Task<T> Delete<T>()
