@@ -5,16 +5,17 @@
     x:Class="ProyectoLacteos.View.viewDirecciones"
     Title="Direcciones"
     xmlns:local="clr-namespace:ProyectoLacteos.ViewModel"
-    BackgroundColor="#15992b">
+    BackgroundColor="ForestGreen">
     <ContentPage.BindingContext>
         <local:ViewModelDireccion></local:ViewModelDireccion>
     </ContentPage.BindingContext>
 
 
 
-    <Grid Padding="20">
+    <Grid Padding="20" >
         <Grid.RowDefinitions>
 
+            <RowDefinition Height="50" ></RowDefinition>
             <RowDefinition Height="50" ></RowDefinition>
             <RowDefinition Height="50" ></RowDefinition>
             <RowDefinition Height="50" ></RowDefinition>
@@ -29,19 +30,23 @@
             <ColumnDefinition Width="*" ></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label VerticalTextAlignment="End"  Text="Direccion" Grid.Column="0" Grid.Row="0" />
-        <Entry x:Name="Direccion" ClassId="Direccion" Text="{Binding Direccion}" Grid.Column="1" Grid.Row="0" />
+        <ImageButton Source="mapa.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
+                      Aspect="AspectFit" Grid.Column="1" Grid.Row="0"></ImageButton>
 
-        <Label  VerticalTextAlignment="End" Text="Descripcion" Grid.Column="0" Grid.Row="1" />
-        <Entry x:Name="Descripcion" ClassId="Descripcion" Text="{Binding Descripcion}" Grid.Column="1" Grid.Row="1" />
 
+        <Label TextColor="white"  VerticalTextAlignment="End"  Text="Direccion: " FontSize="16" FontFamily="Bold" Grid.Column="0" Grid.Row="1" />
+        <Entry TextColor="white"  x:Name="Direccion" ClassId="Direccion"  Text="{Binding Direccion}"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+        <Label TextColor="white"  VerticalTextAlignment="End" Text="Descripcion: " FontSize="16" FontFamily="Bold" Grid.Column="0" Grid.Row="2" />
+        <Entry TextColor="white" x:Name="Descripcion" ClassId="Descripcion" Text="{Binding Descripcion}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" />
+
+
+        <Button BorderColor="DarkSeaGreen" BorderWidth="2" BackgroundColor="DarkGreen" Command="{Binding AgregarDireccion}" Text="Crear Dirección" FontSize="15" FontFamily="Bold" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="4"  />
+        <Button BorderColor="DarkSeaGreen" BorderWidth="2" BackgroundColor="DarkGreen" Command="{Binding ActualizarDireccion}" Text="Actualizar" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="1" />
+
+        <Button BackgroundColor="SeaGreen" BorderColor="AliceBlue" BorderWidth="2" Command="{Binding GetDirecciones}" Text="Ver mis Direcciones" Grid.Column="0" Grid.Row="5"  Grid.ColumnSpan="3"   />
         
-        <Button Command="{Binding AgregarDireccion}" Text="Crear" Grid.Column="0" Grid.Row="3"  />
-        <Button Command="{Binding ActualizarDireccion}" Text="Actualizar" Grid.Column="1" Grid.Row="3"  />
-        
-        <Button Command="{Binding GetDirecciones}" Text="Get direcc" Grid.Column="0" Grid.Row="4"  Grid.ColumnSpan="2"   />
-
-        <CollectionView Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0" 
+        <CollectionView Grid.Row="6" Grid.ColumnSpan="3" Grid.Column="0" 
                         
                         SelectionMode="Single"  
                         ItemsSource="{Binding listarDireccines}"
@@ -60,13 +65,11 @@
                             <ColumnDefinition Width="*" ></ColumnDefinition>
                             <ColumnDefinition Width="*" ></ColumnDefinition>
                             <ColumnDefinition Width="*" ></ColumnDefinition>
-                            
                         </Grid.ColumnDefinitions>
 
-                        <Label Text="{Binding id}"  Grid.Row="0" Grid.Column="0" />
-                        <Label Text="{Binding direccion}" Grid.Row="0" Grid.Column="1"/>
-                        <Label Text="{Binding descripcion}"  Grid.Row="0" Grid.Column="2"/>
-                        
+                        <Label TextColor="white" Text="{Binding direccion}"  Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" />
+                        <Label TextColor="white"  Text="{Binding descripcion}" Grid.Row="0" Grid.Column="2"/>
+
 
                     </Grid>
 

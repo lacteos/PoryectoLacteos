@@ -24,8 +24,8 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Label BackgroundColor="DarkGreen" TextColor="Black" FontSize="24" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" Text="{Binding NOMBRE_PRODUCTO}" />
-                            <Label TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" Text="{Binding precio}" />
+                            <Label BackgroundColor="DarkGreen" TextColor="White" FontSize="24" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" Text="{Binding NOMBRE_PRODUCTO}" />
+                            <Label TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" Text="{Binding precio}" />
                             <StackLayout></StackLayout>
                             <Image Margin="30"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  Grid.Column="0" Grid.Row="2" Source="{Binding imagen}"></Image>
                             

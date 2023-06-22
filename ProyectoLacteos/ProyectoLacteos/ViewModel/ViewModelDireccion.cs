@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using ProyectoLacteos.Modelo;
+using ProyectoLacteos.View;
 using Xamarin.Forms;
 using static System.Net.WebRequestMethods;
 
@@ -25,10 +26,12 @@ namespace ProyectoLacteos.ViewModel
             GetDirecciones = new Command(async () =>
             {
                 getDirecciones();
+
             });
 
             ActualizarDireccion = new Command(async () =>
             {
+                
                 string algo = SharedData.DataId;
                 var url = "https://apex.oracle.com/pls/apex/lacteos/Lacteos/update_direccion/" + DireccionSeleccionada.id;
                 ConsumoServicio servicio = new ConsumoServicio(url);
@@ -49,13 +52,17 @@ namespace ProyectoLacteos.ViewModel
                 if (responose != null)
                 {
 
-
-
-
                     Application.Current.MainPage.DisplayAlert("Mensaje", responose.MENSAJE, "OK");
 
+                    
+                    //await Application.Current.MainPage.Navigation.PopAsync();
+                    await Application.Current.MainPage.Navigation.PushAsync(new viewDirecciones());
+                    getDirecciones();
                 }
+                Direccion = " ";
+                Descripcion = " ";
             }
+            
             );
 
             AgregarDireccion = new Command(async () =>
@@ -79,8 +86,11 @@ namespace ProyectoLacteos.ViewModel
                 {
 
                     Application.Current.MainPage.DisplayAlert("Mensaje", responose.MENSAJE, "OK");
-                    
+                    await Application.Current.MainPage.Navigation.PushAsync(new viewDirecciones());
+                    getDirecciones();
                 }
+                Direccion = " ";
+                Descripcion = " ";
             }
             );
 

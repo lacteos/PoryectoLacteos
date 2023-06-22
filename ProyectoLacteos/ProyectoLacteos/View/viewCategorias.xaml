@@ -24,9 +24,9 @@
 
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame  Padding="20" Margin="10" BorderColor="Green"        >
+                            <Frame BackgroundColor="DarkGreen"  Padding="20" Margin="10" BorderColor="Green"  CornerRadius="20"      >
 
-                                <Grid Margin="10">
+                                <Grid Margin="1">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="auto" />
                                         
@@ -39,7 +39,7 @@
                                     
 
 
-                                    <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold"
+                                    <Label TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold"
                                            FontSize="Large" Text="{Binding categoria}"></Label>
 
                                 </Grid>
