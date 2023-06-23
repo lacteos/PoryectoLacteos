@@ -58,7 +58,7 @@
 
                     <Label Grid.Row="3" Grid.Column="1" FontAttributes="Bold" Margin="0,-15,0,0" Text="Mis Pedidos" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
                     <ImageButton Source="pedidos.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
-                                 FlexLayout.Grow="1" Command="{Binding navegarProducto}" Aspect="AspectFit" Grid.Row="3" 
+                                 FlexLayout.Grow="1" Command="{Binding navegarMisPedido}" Aspect="AspectFit" Grid.Row="3" 
                                  Grid.Column="1" BorderWidth=".5" CornerRadius="10" BorderColor="Green" Margin="5" Padding="9"/>
 
 

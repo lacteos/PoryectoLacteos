@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ProyectoLacteos.ViewModel"
+             x:Class="ProyectoLacteos.View.ViewMisPedidos">
+    <ContentPage.BindingContext>
+        <local:ViewPaginaInicio></local:ViewPaginaInicio>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        
+    
+    <CollectionView BackgroundColor="White" Grid.Row="1" Grid.Column="0" 
+                        
+                        SelectionMode="Single"  
+                        ItemsSource="{Binding listarMisPedidos}">
+        
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+
+                <Grid Padding="10">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" ></ColumnDefinition>
+                        <ColumnDefinition Width="*" ></ColumnDefinition>
+                        <ColumnDefinition Width="*" ></ColumnDefinition>
+                        <ColumnDefinition Width="*" ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    
+                    <Label TextColor="Black" Text="{Binding id}"  Grid.Row="0" Grid.ColumnSpan="1" Grid.Column="0" />
+                    <Label TextColor="Black"  Text="{Binding id_usuario}" Grid.Row="0" Grid.Column="1"/>
+                    <Label TextColor="Black"  Text="{Binding id_direccion}" Grid.Row="0" Grid.Column="2"/>
+                    <Label TextColor="Black"  Text="{Binding fecha_pedido}" Grid.Row="0" Grid.Column="3"/>
+
+                    <StackLayout>
+                        <Button BackgroundColor="SeaGreen" BorderColor="AliceBlue" BorderWidth="2" Command="{Binding MisPedidos}" Text="Ver mis Direcciones" Grid.Column="0" Grid.Row="5"  Grid.ColumnSpan="3"   />
+                    </StackLayout>
+
+                </Grid>
+
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+    </ContentPage.Content>
+
+</ContentPage>
