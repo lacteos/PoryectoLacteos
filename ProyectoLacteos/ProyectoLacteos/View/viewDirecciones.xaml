@@ -5,83 +5,86 @@
     x:Class="ProyectoLacteos.View.viewDirecciones"
     Title="Direcciones"
     xmlns:local="clr-namespace:ProyectoLacteos.ViewModel"
-    BackgroundColor="ForestGreen">
+    BackgroundColor="#15992b">
     <ContentPage.BindingContext>
         <local:ViewModelDireccion></local:ViewModelDireccion>
     </ContentPage.BindingContext>
 
 
-
-    <Grid Padding="20" >
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
         <Grid.RowDefinitions>
-
-            <RowDefinition Height="50" ></RowDefinition>
-            <RowDefinition Height="50" ></RowDefinition>
-            <RowDefinition Height="50" ></RowDefinition>
-            <RowDefinition Height="50" ></RowDefinition>
-            <RowDefinition Height="50" ></RowDefinition>
-            <RowDefinition Height="50" ></RowDefinition>
-            <RowDefinition Height="*" ></RowDefinition>
-
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+        <Image Grid.Row="0" Margin="0,5,0,0" Source="mapa.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"></Image>
+        <Frame Grid.Row="1" Margin="0,10,0,-40" BorderColor="#1C375C" HasShadow="True"  CornerRadius="25" HeightRequest="800">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="10,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" ></ColumnDefinition>
-            <ColumnDefinition Width="*" ></ColumnDefinition>
-        </Grid.ColumnDefinitions>
 
-        <ImageButton Source="mapa.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
-                      Aspect="AspectFit" Grid.Column="1" Grid.Row="0"></ImageButton>
+                <Label Grid.Row="1"  Text="Mis Direcciones" Margin="0,-130,0,0" FontSize="24" FontAttributes="Bold" TextColor="#1C375C" 
+                                       HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2"></Label>
 
+                <Label Grid.Row="2" Margin="0,-140,0,0" Text="Elige la Direccción" FontAttributes="Bold" TextColor="#1C375C"  
+                                       HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2"></Label>
 
-        <Label TextColor="white"  VerticalTextAlignment="End"  Text="Direccion: " FontSize="16" FontFamily="Bold" Grid.Column="0" Grid.Row="1" />
-        <Entry TextColor="white"  x:Name="Direccion" ClassId="Direccion"  Text="{Binding Direccion}"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <Label TextColor="black"  VerticalTextAlignment="End"  Text="Direccion: " FontSize="16" FontFamily="Bold" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" />
+                <Entry TextColor="black"  x:Name="Direccion" ClassId="Direccion"  Text="{Binding Direccion}"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Margin="-25 0 0 0"/>
 
-        <Label TextColor="white"  VerticalTextAlignment="End" Text="Descripcion: " FontSize="16" FontFamily="Bold" Grid.Column="0" Grid.Row="2" />
-        <Entry TextColor="white" x:Name="Descripcion" ClassId="Descripcion" Text="{Binding Descripcion}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" />
+                <Label TextColor="black"  VerticalTextAlignment="End" Text="Descripcion: " FontSize="16" FontFamily="Bold" Grid.Column="0" Grid.Row="4" />
+                <Entry TextColor="black" x:Name="Descripcion" ClassId="Descripcion" Text="{Binding Descripcion}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"  Margin="-25 0 0 0"/>
 
 
-        <Button BorderColor="DarkSeaGreen" BorderWidth="2" BackgroundColor="DarkGreen" Command="{Binding AgregarDireccion}" Text="Crear Dirección" FontSize="15" FontFamily="Bold" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="4"  />
-        <Button BorderColor="DarkSeaGreen" BorderWidth="2" BackgroundColor="DarkGreen" Command="{Binding ActualizarDireccion}" Text="Actualizar" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="1" />
+                <Button BorderColor="#15992b" TextColor="AliceBlue" BorderWidth="2" BackgroundColor="DarkGreen" Command="{Binding AgregarDireccion}" Text="Crear Dirección" Padding="10" FontSize="13" FontAttributes="Bold" FontFamily="Bold"  Grid.Column="0" Grid.Row="6" Margin="10"  CornerRadius="20" />
+                <Button BorderColor="#15992b" TextColor="AliceBlue" BorderWidth="2" BackgroundColor="#edc43e" Command="{Binding ActualizarDireccion}" Text="Actualizar" Grid.Column="1" Grid.Row="6"  Margin="10" FontSize="13" FontAttributes="Bold"  CornerRadius="20"/>
 
-        <Button BackgroundColor="SeaGreen" BorderColor="AliceBlue" BorderWidth="2" Command="{Binding GetDirecciones}" Text="Ver mis Direcciones" Grid.Column="0" Grid.Row="5"  Grid.ColumnSpan="3"   />
-        
-        <CollectionView Grid.Row="6" Grid.ColumnSpan="3" Grid.Column="0" 
+                <Button BackgroundColor="#00ccf5" TextColor="AliceBlue" BorderColor="#15992b" BorderWidth="2" Command="{Binding GetDirecciones}" Text="Ver mis Direcciones" Grid.Column="0" FontSize="13" FontAttributes="Bold" Grid.Row="7" Margin="10"  CornerRadius="20" Grid.ColumnSpan="2"   />
+
+
+                <CollectionView Grid.Row="8" Grid.ColumnSpan="2" Grid.Column="0"  
                         
                         SelectionMode="Single"  
                         ItemsSource="{Binding listarDireccines}"
                        SelectedItem="{Binding DireccionSeleccionada}"
                         >
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
 
-                    <Grid Padding="10">
+                            <Grid Padding="10" BackgroundColor="#c5d5d9">
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"></RowDefinition>
-                        </Grid.RowDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" ></ColumnDefinition>
-                            <ColumnDefinition Width="*" ></ColumnDefinition>
-                            <ColumnDefinition Width="*" ></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
 
-                        <Label TextColor="white" Text="{Binding direccion}"  Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" />
-                        <Label TextColor="white"  Text="{Binding descripcion}" Grid.Row="0" Grid.Column="2"/>
+                                <Label TextColor="Black" Text="{Binding direccion}"  Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" />
+                                <Label TextColor="Black"  Text="{Binding descripcion}" Grid.Row="0" Grid.Column="2"/>
 
 
-                    </Grid>
+                            </Grid>
 
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
+            </Grid>
+        </Frame>
     </Grid>
-
-
-
-
 
 </ContentPage>
 
