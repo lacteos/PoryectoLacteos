@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:ProyectoLacteos.ViewModel"
              x:Class="ProyectoLacteos.View.PaginaInicio"
-             BackgroundColor="#15992b">
+             BackgroundColor="#15992b"
+             >
     
     
     <ContentPage.BindingContext>

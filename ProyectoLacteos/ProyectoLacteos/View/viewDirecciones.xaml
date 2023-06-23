@@ -39,10 +39,10 @@
                                        HorizontalOptions="CenterAndExpand" Grid.ColumnSpan="2"></Label>
 
                 <Label TextColor="black"  VerticalTextAlignment="End"  Text="Direccion: " FontSize="16" FontFamily="Bold" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" />
-                <Entry TextColor="black"  x:Name="Direccion" ClassId="Direccion"  Text="{Binding Direccion}"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Margin="-25 0 0 0"/>
+                <Entry TextColor="black"  x:Name="Direccion" ClassId="Direccion"  Text="{Binding Direccion}"  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" />
 
                 <Label TextColor="black"  VerticalTextAlignment="End" Text="Descripcion: " FontSize="16" FontFamily="Bold" Grid.Column="0" Grid.Row="4" />
-                <Entry TextColor="black" x:Name="Descripcion" ClassId="Descripcion" Text="{Binding Descripcion}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"  Margin="-25 0 0 0"/>
+                <Entry TextColor="black" x:Name="Descripcion" ClassId="Descripcion" Text="{Binding Descripcion}" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"  />
 
 
                 <Button BorderColor="#15992b" TextColor="AliceBlue" BorderWidth="2" BackgroundColor="DarkGreen" Command="{Binding AgregarDireccion}" Text="Crear Dirección" Padding="10" FontSize="13" FontAttributes="Bold" FontFamily="Bold"  Grid.Column="0" Grid.Row="6" Margin="10"  CornerRadius="20" />
