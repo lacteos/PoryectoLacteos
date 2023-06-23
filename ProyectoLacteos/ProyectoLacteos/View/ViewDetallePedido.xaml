@@ -15,13 +15,13 @@
         <StackLayout>
             <Label Text="Categoría:" />
             <Picker x:Name="CategoriaPicker" />
-            <Entry  x:Name="CategoriaEntry" TextChanged="CategoriaEntry_TextChanged"></Entry>
+            <Entry IsVisible="false"  x:Name="CategoriaEntry" TextChanged="CategoriaEntry_TextChanged"></Entry>
 
 
             <Label Text="Producto:" />
             <Picker x:Name="ProductoPicker" />
             
-            <Entry Text="{Binding Id_product}" x:Name="ProductoEntry"></Entry>
+            <Entry IsVisible="false" Text="{Binding Id_product}" x:Name="ProductoEntry"></Entry>
             
             <Label Text="Precio:"></Label>
             <Label x:Name="LabelPrecio"></Label>
