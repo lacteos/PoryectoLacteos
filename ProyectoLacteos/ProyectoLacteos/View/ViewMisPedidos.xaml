@@ -8,44 +8,62 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        
-    
-    <CollectionView BackgroundColor="White" Grid.Row="1" Grid.Column="0" 
+
+        <Grid BackgroundColor="SeaGreen" Padding="10">
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="50" ></RowDefinition>
+                <RowDefinition Height="50" ></RowDefinition>
+                <RowDefinition Height="*" ></RowDefinition>
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" ></ColumnDefinition>
+                <ColumnDefinition Width="*" ></ColumnDefinition>
+                <ColumnDefinition Width="*" ></ColumnDefinition>
+                <ColumnDefinition Width="*" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button BackgroundColor="Green" BorderColor="AliceBlue" BorderWidth="2" Command="{Binding MisPedidos}" Text="Ver mis Pedidos" Grid.Column="0" Grid.Row="0"  Grid.ColumnSpan="5"   />
+            <Label Text="ID Direccion" Grid.Row="1" Grid.Column="0"></Label>
+            <Label Text="ID Pedido" Grid.Row="1"  Grid.Column="1"></Label>
+            <Label Text="ID Usuario" Grid.Row="1" Grid.Column="2"></Label>
+            <Label Text="Fecha Pedido" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="3"></Label>
+            <CollectionView Grid.Row="2" Grid.ColumnSpan="5" Grid.Column="0" 
                         
                         SelectionMode="Single"  
-                        ItemsSource="{Binding listarMisPedidos}">
-        
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
+                        ItemsSource="{Binding listarMisPedidos}"
+                       SelectedItem="{Binding DireccionSeleccionada}"
+                        >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
 
-                <Grid Padding="10">
+                        <Grid Padding="1">
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"></RowDefinition>
-                    </Grid.RowDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" ></ColumnDefinition>
-                        <ColumnDefinition Width="*" ></ColumnDefinition>
-                        <ColumnDefinition Width="*" ></ColumnDefinition>
-                        <ColumnDefinition Width="*" ></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" ></ColumnDefinition>
+                                <ColumnDefinition Width="*" ></ColumnDefinition>
+                                <ColumnDefinition Width="*" ></ColumnDefinition>
+                                <ColumnDefinition Width="*" ></ColumnDefinition>
+                                <ColumnDefinition Width="*" ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
 
-                    
-                    <Label TextColor="Black" Text="{Binding id}"  Grid.Row="0" Grid.ColumnSpan="1" Grid.Column="0" />
-                    <Label TextColor="Black"  Text="{Binding id_usuario}" Grid.Row="0" Grid.Column="1"/>
-                    <Label TextColor="Black"  Text="{Binding id_direccion}" Grid.Row="0" Grid.Column="2"/>
-                    <Label TextColor="Black"  Text="{Binding fecha_pedido}" Grid.Row="0" Grid.Column="3"/>
+                            <Label TextColor="white" Text="{Binding id_direccion}"  Grid.Row="0" Grid.Column="0" />
+                            <Label TextColor="white"  Text="{Binding id}" Grid.Row="0" Grid.Column="1"/>
+                            <Label TextColor="white"  Text="{Binding id_usuario}" Grid.Row="0" Grid.Column="2"/>
+                            <Label TextColor="white"  Text="{Binding fecha_pedido}" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="3"/>
 
-                    <StackLayout>
-                        <Button BackgroundColor="SeaGreen" BorderColor="AliceBlue" BorderWidth="2" Command="{Binding MisPedidos}" Text="Ver mis Direcciones" Grid.Column="0" Grid.Row="5"  Grid.ColumnSpan="3"   />
-                    </StackLayout>
 
-                </Grid>
+                        </Grid>
 
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </ContentPage.Content>
 
 </ContentPage>
