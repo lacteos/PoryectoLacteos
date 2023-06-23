@@ -1,21 +1,29 @@
-﻿using Newtonsoft.Json;
-using ProyectoLacteos.Modelo;
-using ProyectoLacteos.View;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net.Http;
-using System.Text;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using ProyectoLacteos.Modelo;
+using ProyectoLacteos.View;
 using Xamarin.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace ProyectoLacteos.ViewModel
 {
     public class ViewPaginaInicio : INotifyPropertyChanged
     {
+
         public ViewPaginaInicio()
         {
+            MisPedidos = new Command(async () =>
+            {
+                cargarMisPedidos();
+
+            });
+
             navegarProducto = new Command(async () =>
             {
                 await cargarPerfil();
@@ -31,6 +39,14 @@ namespace ProyectoLacteos.ViewModel
             {
                 await cargarPerfil();
                 await Application.Current.MainPage.Navigation.PushAsync(new viewPedido());
+            });
+
+            navegarMisPedido = new Command(async () =>
+            {
+                
+                await cargarPerfil();
+                await Application.Current.MainPage.Navigation.PushAsync(new ViewMisPedidos());
+                cargarMisPedidos();
             });
 
             navegarDirecciones = new Command(async () =>
@@ -64,16 +80,35 @@ namespace ProyectoLacteos.ViewModel
             }
         }
 
+        public async void cargarMisPedidos()
+        {
+            string algo = SharedData.DataId;
+            ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/get_pedido/"+algo);
+            GetMisPedidosResponse responseMisPedidos = await servicio.Get<GetMisPedidosResponse>();
+
+
+            foreach (GetMisPedidos x in responseMisPedidos.items)
+            {
+
+                listarMisPedidos.Add(x);
+
+            }
+
+        }
+
 
         public Command navegarProducto { get; }
         public Command navegarCategorias { get; }
         public Command navegarPedido { get; }
+        public Command navegarMisPedido { get; }
         public Command navegarDirecciones { get; }
         public Command navegarPerfil { get; }
 
+        public Command MisPedidos { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
-       
+        public ObservableCollection<GetMisPedidos> listarMisPedidos { get; set; } = new ObservableCollection<GetMisPedidos>();
     }
 }
 
