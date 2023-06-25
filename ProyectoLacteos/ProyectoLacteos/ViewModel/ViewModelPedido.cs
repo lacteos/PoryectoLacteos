@@ -106,6 +106,8 @@ namespace ProyectoLacteos.ViewModel
 
         public Command crearPedido { get; }
 
+        
+
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

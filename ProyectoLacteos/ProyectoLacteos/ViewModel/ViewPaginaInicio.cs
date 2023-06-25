@@ -47,6 +47,15 @@ namespace ProyectoLacteos.ViewModel
                 await cargarPerfil();
                 await Application.Current.MainPage.Navigation.PushAsync(new ViewMisPedidos());
                 cargarMisPedidos();
+                redirigirDetallePedido = new Command(() => {
+
+
+                    var pagina = new ViewMisPedidos();
+                    var viewModel = pedidoSeleccionado.id;
+
+                    pagina.BindingContext = viewModel;
+                    Application.Current.MainPage.Navigation.PushAsync(pagina);
+                });
             });
 
             navegarDirecciones = new Command(async () =>
@@ -83,6 +92,7 @@ namespace ProyectoLacteos.ViewModel
         public async void cargarMisPedidos()
         {
             string algo = SharedData.DataId;
+            string nombre = SharedData.DataName;
             ConsumoServicio servicio = new ConsumoServicio("https://apex.oracle.com/pls/apex/lacteos/Lacteos/get_pedido/"+algo);
             GetMisPedidosResponse responseMisPedidos = await servicio.Get<GetMisPedidosResponse>();
 
@@ -96,7 +106,21 @@ namespace ProyectoLacteos.ViewModel
 
         }
 
+        GetMisPedidos pedidoSeleccionado;
+        public GetMisPedidos PedidoSeleccionado
+        {
 
+            get => pedidoSeleccionado;
+
+            set
+            {
+                pedidoSeleccionado = value;
+                var args = new PropertyChangedEventArgs(nameof(PedidoSeleccionado));
+                PropertyChanged?.Invoke(this, args);
+            }
+        }
+
+        public Command redirigirDetallePedido { get; set; }
         public Command navegarProducto { get; }
         public Command navegarCategorias { get; }
         public Command navegarPedido { get; }

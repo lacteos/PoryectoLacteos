@@ -106,6 +106,7 @@ namespace ProyectoLacteos.ViewModel
         public async void getDirecciones()
         {
             string algo = SharedData.DataId;
+            string nombre = SharedData.DataName;
             string url = "https://apex.oracle.com/pls/apex/lacteos/Lacteos/direccion/" + algo;
             ConsumoServicio servicio = new ConsumoServicio(url);
             GetDireccionesRequest response= await servicio.Get<GetDireccionesRequest>();

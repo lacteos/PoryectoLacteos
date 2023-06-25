@@ -39,11 +39,13 @@ namespace ProyectoLacteos.ViewModel
 
             });
 
+            
 
 
-        }
 
+    }
 
+        
 
 
         int id_product;

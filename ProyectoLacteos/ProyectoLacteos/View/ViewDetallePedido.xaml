@@ -11,26 +11,23 @@
     </ContentPage.BindingContext>
 
 
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Categoría:" />
-            <Picker x:Name="CategoriaPicker" />
-            <Entry IsVisible="false"  x:Name="CategoriaEntry" TextChanged="CategoriaEntry_TextChanged"></Entry>
+    <ContentPage.Content >
+        <StackLayout  BackgroundColor="Green">
+            <Label Margin="10" Text="Categoría del Producto:" />
+            <Picker Margin="10" x:Name="CategoriaPicker" />
+            <Entry Margin="10" IsVisible="false"  x:Name="CategoriaEntry" TextChanged="CategoriaEntry_TextChanged"></Entry>
 
 
-            <Label Text="Producto:" />
-            <Picker x:Name="ProductoPicker" />
+            <Label Margin="10" Text="Seleccione el Producto:" />
+            <Picker Margin="10" x:Name="ProductoPicker" />
             
             <Entry IsVisible="false" Text="{Binding Id_product}" x:Name="ProductoEntry"></Entry>
-            
-            <Label Text="Precio:"></Label>
-            <Label x:Name="LabelPrecio"></Label>
 
-            <Label Text="Cantidad:" />
-            <Entry Text="{Binding Cantidad}" x:Name="CantidadEntry" Keyboard="Numeric" Placeholder="Ingrese la cantidad" />
+            <Label Margin="10" FontSize="14" Text="Precio:"></Label>
+            <Label Margin="10" TextColor="White" FontAttributes="Bold" FontSize="18" x:Name="LabelPrecio"></Label>
 
-            <Label Text="Unidad de medida:" />
-            <Picker x:Name="UnidadMedidaPicker">
+            <Label Margin="10" Text="Unidad de medida:" />
+            <Picker Margin="10" x:Name="UnidadMedidaPicker">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Libras</x:String>
@@ -41,7 +38,11 @@
                 </Picker.ItemsSource>
             </Picker>
 
-            <Button Command="{Binding crearDetallePedido}" Text="Añadir producto a pedido"></Button>
+            <Label Margin="10" Text="Cantidad:" />
+            <Entry Margin="10" Text="{Binding Cantidad}" x:Name="CantidadEntry" Keyboard="Numeric" Placeholder="Ingrese la cantidad" />
+
+
+            <Button BorderColor="White" BorderWidth="2" CornerRadius="10" WidthRequest="300" HeightRequest="50" BackgroundColor="DarkGreen" Command="{Binding crearDetallePedido}" Text="Añadir producto a pedido"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

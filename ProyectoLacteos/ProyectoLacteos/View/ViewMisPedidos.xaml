@@ -25,9 +25,9 @@
                 <ColumnDefinition Width="*" ></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Button BackgroundColor="Green" BorderColor="AliceBlue" BorderWidth="2" Command="{Binding MisPedidos}" Text="Ver mis Pedidos" Grid.Column="0" Grid.Row="0"  Grid.ColumnSpan="5"   />
-            <Label Text="ID Direccion" Grid.Row="1" Grid.Column="0"></Label>
-            <Label Text="ID Pedido" Grid.Row="1"  Grid.Column="1"></Label>
-            <Label Text="ID Usuario" Grid.Row="1" Grid.Column="2"></Label>
+
+            <Label Text="ID Pedido" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"></Label>
+            <Label Text="Usuario" Grid.Row="1"  Grid.Column="2"></Label>
             <Label Text="Fecha Pedido" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="3"></Label>
             <CollectionView Grid.Row="2" Grid.ColumnSpan="5" Grid.Column="0" 
                         
@@ -52,8 +52,8 @@
                                 <ColumnDefinition Width="*" ></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
-                            <Label TextColor="white" Text="{Binding id_direccion}"  Grid.Row="0" Grid.Column="0" />
-                            <Label TextColor="white"  Text="{Binding id}" Grid.Row="0" Grid.Column="1"/>
+                            
+                            <Label TextColor="white"  Text="{Binding id}" Grid.Row="0" Grid.Column="0"/>
                             <Label TextColor="white"  Text="{Binding id_usuario}" Grid.Row="0" Grid.Column="2"/>
                             <Label TextColor="white"  Text="{Binding fecha_pedido}" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="3"/>
 
