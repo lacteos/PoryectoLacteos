@@ -52,19 +52,25 @@
                                  FlexLayout.Grow="1" Command="{Binding navegarDirecciones}" Aspect="AspectFit" Grid.Row="2" 
                                  Grid.Column="1" BorderWidth=".5" CornerRadius="10" BorderColor="Green" Margin="5" Padding="9"/>
 
-                    <Label   Grid.Row="3" Grid.Column="0" FontAttributes="Bold" Margin="0,-15,0,0" Text="Realizar Pedido" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
-                    <ImageButton Source="compra.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
-                                 FlexLayout.Grow="1"  Command="{Binding navegarPedido}" Aspect="AspectFit" Grid.Row="3" 
+                    <Label   Grid.Row="3" Grid.Column="0" FontAttributes="Bold" Margin="0,-15,0,0" Text="Mis Pedidos" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <ImageButton Source="pedidos.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
+                                 FlexLayout.Grow="1"  Command="{Binding  navegarMisPedido}" Aspect="AspectFit" Grid.Row="3" 
                                  Grid.Column="0" BorderWidth=".5" CornerRadius="10" BorderColor="Green" Margin="5" Padding="9" Clicked="ImageButton_Clicked"/>
 
-                    <Label Grid.Row="3" Grid.Column="1" FontAttributes="Bold" Margin="0,-15,0,0" Text="Mis Pedidos" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
-                    <ImageButton Source="pedidos.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
-                                 FlexLayout.Grow="1" Command="{Binding navegarMisPedido}" Aspect="AspectFit" Grid.Row="3" 
+                    
+
+                    <Label Grid.Row="3" Grid.Column="1" FontAttributes="Bold" Margin="0,-15,0,0" Text="Categorías" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <ImageButton Source="CATEGORIAS.png" BackgroundColor="Transparent" WidthRequest="120" HeightRequest="120" 
+                                 FlexLayout.Grow="1" Command="{Binding navegarCategorias}" Aspect="AspectFit" Grid.Row="3" 
                                  Grid.Column="1" BorderWidth=".5" CornerRadius="10" BorderColor="Green" Margin="5" Padding="9"/>
 
+                    
 
+                    <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" FontAttributes="Bold" Margin="0,-15,0,0" Text="Realizar Pedido" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <ImageButton Source="compra.png" BackgroundColor="Transparent" WidthRequest="100" HeightRequest="100" 
+                                 FlexLayout.Grow="1" Command="{Binding navegarPedido}" Aspect="AspectFit" Grid.Row="4" 
+                                 Grid.Column="0" Grid.ColumnSpan="2" BorderWidth=".5" CornerRadius="10" BorderColor="Green" Margin="5" Padding="9"/>
 
-                    <Button Command="{Binding navegarCategorias}" BackgroundColor="DarkGreen" FontAttributes="Bold" BorderWidth=".5" CornerRadius="15" BorderColor="Green" Text="Categorias" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" />
                 </Grid>
             </Frame>
         </Grid>

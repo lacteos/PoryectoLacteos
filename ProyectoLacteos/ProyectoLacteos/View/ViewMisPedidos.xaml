@@ -2,68 +2,75 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ProyectoLacteos.ViewModel"
-             x:Class="ProyectoLacteos.View.ViewMisPedidos">
+             x:Class="ProyectoLacteos.View.ViewMisPedidos" 
+             BackgroundColor="#15992b">
     <ContentPage.BindingContext>
         <local:ViewPaginaInicio></local:ViewPaginaInicio>
     </ContentPage.BindingContext>
 
-    <ContentPage.Content>
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Margin="0,5,0,0" Source="mapa.png" Aspect="AspectFit" HeightRequest="50" WidthRequest="50"></Image>
+        <Frame Grid.Row="1" Margin="0,10,0,-40" BorderColor="#1C375C" HasShadow="True"  CornerRadius="25" HeightRequest="800">
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="10,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" ></RowDefinition>
+                    <RowDefinition Height="50" ></RowDefinition>
+                    <RowDefinition Height="*" ></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-        <Grid BackgroundColor="SeaGreen" Padding="10">
-            <Grid.RowDefinitions>
+                <Button BackgroundColor="#9fa6b3" BorderColor="#15992b" CornerRadius="15" BorderWidth="2" Command="{Binding MisPedidos}" Text="Ver mis Pedidos" Grid.Column="0" Grid.Row="0"  Grid.ColumnSpan="5"   />
 
-                <RowDefinition Height="50" ></RowDefinition>
-                <RowDefinition Height="50" ></RowDefinition>
-                <RowDefinition Height="*" ></RowDefinition>
+                <Label Text="Numero de Pedido" Grid.Row="1" Grid.ColumnSpan="1" Grid.Column="0" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Usuario" Grid.Row="1"  Grid.Column="1" HorizontalTextAlignment="Center"></Label>
+                <Label Text="Fecha Pedido" Grid.Row="1"  Grid.Column="3" Grid.ColumnSpan="1" HorizontalTextAlignment="Center"></Label>
 
-            </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" ></ColumnDefinition>
-                <ColumnDefinition Width="*" ></ColumnDefinition>
-                <ColumnDefinition Width="*" ></ColumnDefinition>
-                <ColumnDefinition Width="*" ></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button BackgroundColor="Green" BorderColor="AliceBlue" BorderWidth="2" Command="{Binding MisPedidos}" Text="Ver mis Pedidos" Grid.Column="0" Grid.Row="0"  Grid.ColumnSpan="5"   />
-
-            <Label Text="ID Pedido" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"></Label>
-            <Label Text="Usuario" Grid.Row="1"  Grid.Column="2"></Label>
-            <Label Text="Fecha Pedido" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="3"></Label>
-            <CollectionView Grid.Row="2" Grid.ColumnSpan="5" Grid.Column="0" 
-                        
+                <CollectionView Grid.Row="2" Grid.ColumnSpan="5" Grid.Column="0" BackgroundColor="#455245" 
                         SelectionMode="Single"  
                         ItemsSource="{Binding listarMisPedidos}"
                        SelectedItem="{Binding DireccionSeleccionada}"
                         >
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
 
-                        <Grid Padding="1">
+                            <Grid Padding="1">
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
 
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" ></ColumnDefinition>
-                                <ColumnDefinition Width="*" ></ColumnDefinition>
-                                <ColumnDefinition Width="*" ></ColumnDefinition>
-                                <ColumnDefinition Width="*" ></ColumnDefinition>
-                                <ColumnDefinition Width="*" ></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-
-                            
-                            <Label TextColor="white"  Text="{Binding id}" Grid.Row="0" Grid.Column="0"/>
-                            <Label TextColor="white"  Text="{Binding id_usuario}" Grid.Row="0" Grid.Column="2"/>
-                            <Label TextColor="white"  Text="{Binding fecha_pedido}" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="3"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                                    <ColumnDefinition Width="*" ></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
 
 
-                        </Grid>
+                                <Label TextColor="white"  Text="{Binding id}" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"/>
+                                <Label TextColor="white"  Text="{Binding id_usuario}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                                <Label TextColor="white"  Text="{Binding fecha_pedido}" Grid.ColumnSpan="3" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center"/>
 
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Grid>
-    </ContentPage.Content>
+
+                            </Grid>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </Grid>
+        </Frame>
+    </Grid>
 
 </ContentPage>

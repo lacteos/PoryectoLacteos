@@ -12,7 +12,7 @@
 
 
     <ContentPage.Content >
-        <StackLayout  BackgroundColor="Green">
+        <StackLayout  BackgroundColor="white">
             <Label Margin="10" Text="Categoría del Producto:" />
             <Picker Margin="10" x:Name="CategoriaPicker" />
             <Entry Margin="10" IsVisible="false"  x:Name="CategoriaEntry" TextChanged="CategoriaEntry_TextChanged"></Entry>
@@ -20,7 +20,7 @@
 
             <Label Margin="10" Text="Seleccione el Producto:" />
             <Picker Margin="10" x:Name="ProductoPicker" />
-            
+
             <Entry IsVisible="false" Text="{Binding Id_product}" x:Name="ProductoEntry"></Entry>
 
             <Label Margin="10" FontSize="14" Text="Precio:"></Label>

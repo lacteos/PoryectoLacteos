@@ -24,12 +24,12 @@
 
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame BackgroundColor="DarkGreen"  Padding="20" Margin="10" BorderColor="Green"  CornerRadius="20"      >
+                            <Frame BackgroundColor="#5c6e59"  Padding="20" Margin="10" BorderColor="#15992b"  CornerRadius="20"      >
 
                                 <Grid Margin="1">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="auto" />
-                                        
+                                        <RowDefinition Height="auto" />
 
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
@@ -38,14 +38,15 @@
                                     </Grid.ColumnDefinitions>
                                     
 
-
-                                    <Label TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontAttributes="Bold"
+                                    <Label TextColor="White" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" FontAttributes="Bold"
                                            FontSize="Large" Text="{Binding categoria}"></Label>
-
+                                    
                                 </Grid>
+                                
                             </Frame>
 
                         </DataTemplate>
+                        
                     </CollectionView.ItemTemplate>
 
                 </CollectionView>
